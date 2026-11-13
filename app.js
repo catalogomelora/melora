@@ -2,7 +2,7 @@
 const WHATSAPP="573000070102";      // +57 300 007 0102
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
 const CATS=[["combos","Combos"],["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"],["cuidado","Cuidado personal"]];
-const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",combos:"img/combo-regalo.jpg"}; // fotos del carrusel de categorías
+const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",combos:"img/combo-regalo.jpg",kits:"img/brilli-kit.jpg"}; // fotos del carrusel de categorías
 /* Productos: archivo productos.js (id, nombre, cat, precio, desc, foto). Para una oferta agrega "antes": precioAnterior */
 /* ================================================= */
 const $=id=>document.getElementById(id),cop=n=>"$"+n.toLocaleString("es-CO")+" COP";
@@ -29,7 +29,7 @@ function card(p){
   const off=p.antes&&p.antes>p.precio;
   return `<article class="card"><button class="ph" data-v="${p.id}" aria-label="Ver ${p.nombre}"><img src="${p.foto}" alt="${p.nombre}" loading="lazy"></button>
   <div class="in"><small>${catName(p.cat)}</small><h3>${p.nombre}</h3>
-  <div class="price">${off?`<s>${cop(p.antes)}</s> `:""}${cop(p.precio)}</div>
+  <div class="price">${off?`<s>${cop(p.antes)}</s> `:""}${cop(p.precio)}${p.incluye?`<small>Precio por el kit de ${p.incluye.length} productos</small>`:""}</div>
   <button class="add" data-a="${p.id}">Agregar al carrito</button></div></article>`;
 }
 function render(){
@@ -47,7 +47,7 @@ $("sort").onchange=e=>{sort=e.target.value;render()};
 function view(id){
   const p=byId(id),F=p.fotos||[p.foto];let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
   $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" aria-label="Foto ${k+1}"><img src="${f}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
-  <small>${catName(p.cat)}</small><h2>${p.nombre}</h2><p>${p.desc}</p><div class="price">${cop(p.precio)}</div>
+  <small>${catName(p.cat)}</small><h2>${p.nombre}</h2><p>${p.desc}</p>${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}<div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
   <button class="btn" data-add>Agregar al carrito</button></div></div>`;
   const b=$("pmBody");
@@ -92,7 +92,7 @@ $("form").onsubmit=e=>{e.preventDefault();
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener");
 };
 /* ---- Carruseles ---- */
-$("cr").innerHTML=["cadenas","aretes","pulseras","combos"].map(id=>{const n=PRODUCTOS.filter(p=>p.cat===id).length;return `<a class="cc" href="#${id}"><img src="${PORTADAS[id]}" alt="" loading="lazy"><b>${catName(id)}</b><small>${n} artículo${n>1?"s":""}</small></a>`}).join("");
+$("cr").innerHTML=["cadenas","aretes","pulseras","kits"].map(id=>{const n=PRODUCTOS.filter(p=>p.cat===id).length;return `<a class="cc" href="#${id}"><img src="${PORTADAS[id]}" alt="" loading="lazy"><b>${catName(id)}</b><small>${n} artículo${n>1?"s":""}</small></a>`}).join("");
 const step=()=>$("cr").firstElementChild.offsetWidth+14;
 $("crPrev").onclick=()=>$("cr").scrollBy({left:-step(),behavior:"smooth"});$("crNext").onclick=()=>$("cr").scrollBy({left:step(),behavior:"smooth"});
 const hs=$("slides"),dots=$("dots"),N=hs.children.length,hc=$("hc");let cur=0,timer;

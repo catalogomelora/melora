@@ -33,7 +33,7 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:
 .scrim{position:fixed;inset:0;background:rgba(40,25,20,.5);z-index:20}
 dialog{border:0;border-radius:var(--r);padding:0;width:min(760px,94vw);max-height:92vh;overflow:auto}
 dialog::backdrop{background:rgba(40,25,20,.5)}
-.pm{display:grid;grid-template-columns:1fr 1fr}.gal{display:flex;flex-direction:column}.gal>img{width:100%;flex:1;object-fit:cover;min-height:260px}.th{display:flex;gap:8px;padding:8px;overflow-x:auto}.th button{flex:none;width:56px;height:56px;padding:0;border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;background:none}.th img{width:100%;height:100%;object-fit:cover}
+.pm{display:grid;grid-template-columns:1fr 1fr}.gal{display:flex;flex-direction:column}.gal{justify-content:center;background:var(--soft)}.gal>img{width:100%;height:auto;aspect-ratio:1;flex:none;object-fit:cover}.th{display:flex;gap:8px;padding:8px;overflow-x:auto}.th button{flex:none;width:56px;height:56px;padding:0;border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;background:none}.th img{width:100%;height:100%;object-fit:cover}
 .pm>div:last-child{padding:22px;display:flex;flex-direction:column;gap:10px}.pm h2{font-size:1.7rem}.pm p{margin:0;color:var(--mut)}
 .q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
 .q button{width:36px;height:36px;border:0;background:none;font-size:1.2rem;cursor:pointer}.q b{min-width:28px;text-align:center}
@@ -82,3 +82,4 @@ body:not(.home) .home-only{display:none}
 .cc b,.cc small{position:absolute;left:8px;right:8px;z-index:1;text-align:center}
 .cc b{top:16px;font:500 1.1rem 'Cormorant Garamond',serif;letter-spacing:.16em;text-transform:uppercase}.cc small{bottom:14px}
 @media(max-width:700px){.sl{padding:32px 44px}.s3{flex-direction:column;text-align:center}.s3 img{width:60%}.cc{flex-basis:70%}}
+.price small{display:block;color:var(--mut);font-weight:400;font-size:.8rem}.pm ul{margin:0;padding-left:1.2rem;color:var(--mut)}

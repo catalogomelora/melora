@@ -21,7 +21,11 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 30000,
   "desc": "Incluye un body splash con destellos que deja un brillito mágico en la piel, ideal para que se sientan como haditas llenas de luz 🧚‍♀️💖, y una cremita corporal hidratante que ayuda a mantener la piel suave, nutrida y protegida durante todo el día.",
-  "foto": "img/brilli-kit.jpg"
+  "foto": "img/kit-brilli.jpg",
+  "incluye": [
+   "Body splash con destellos",
+   "Cremita corporal hidratante"
+  ]
  },
  {
   "id": 23,
@@ -29,10 +33,10 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 50000,
   "desc": "Body splash y mantequilla corporal Julieta que hidratan, perfuman y dejan la piel con hermosos brillos.",
-  "foto": "img/shimmer-bombom.jpg",
-  "fotos": [
-   "img/shimmer-bombom.jpg",
-   "img/mantequilla-bombom.jpg"
+  "foto": "img/kit-shimmer-mantequilla.jpg",
+  "incluye": [
+   "Shimmer Glam Julieta Bom Bom (body splash)",
+   "Mantequilla corporal Julieta Bom Bom"
   ]
  },
  {
@@ -41,10 +45,10 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 48000,
   "desc": "Mantequilla corporal Coco-Vainilla y aceite corporal de coco con destellos, que hidratan, nutren y ayudan a mejorar la apariencia. Deja la piel suave, luminosa y con un hermoso efecto brillante.",
-  "foto": "img/mantequilla-coco-vainilla.jpg",
-  "fotos": [
-   "img/mantequilla-coco-vainilla.jpg",
-   "img/aceite-coco.jpg"
+  "foto": "img/kit-mantequilla-aceite-coco.jpg",
+  "incluye": [
+   "Mantequilla corporal Coco-Vainilla",
+   "Aceite corporal con destellos Coco"
   ]
  },
  {
@@ -53,11 +57,11 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 60000,
   "desc": "Exfolia, hidrata y perfuma tu piel con Bom Bom. Incluye Shimmer Glam Julieta Bom Bom, crema corporal hidratante con destellos y exfoliante corporal Julieta Bombombun.",
-  "foto": "img/shimmer-bombom.jpg",
-  "fotos": [
-   "img/shimmer-bombom.jpg",
-   "img/crema-bombombun.jpg",
-   "img/exfoliante-bombombun.jpg"
+  "foto": "img/kit-shimmer-crema-exfoliante.jpg",
+  "incluye": [
+   "Shimmer Glam Julieta Bom Bom",
+   "Crema corporal con destellos Bombombun",
+   "Exfoliante corporal Bombombun"
   ]
  },
  {
@@ -66,10 +70,10 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 40000,
   "desc": "✨ Hidrata, ilumina y nutre tu piel 🥥🍊 Disfruta la suavidad de la crema de coco con destellos y el toque nutritivo del aceite corporal de naranja. ¡Piel radiante y deliciosa! 💛",
-  "foto": "img/crema-coco-vainilla.jpg",
-  "fotos": [
-   "img/crema-coco-vainilla.jpg",
-   "img/aceite-naranja.jpg"
+  "foto": "img/kit-crema-aceite-naranja.jpg",
+  "incluye": [
+   "Crema corporal con destellos Coco-Vainilla",
+   "Aceite corporal con destellos Naranja"
   ]
  },
  {
