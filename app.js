@@ -1,7 +1,8 @@
 /* ===== CONFIGURACIÓN: edita solo esta parte ===== */
 const WHATSAPP="573000070102";      // +57 300 007 0102
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
-const CATS=[["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["maquillaje","Maquillaje"],["cuidado","Cuidado personal"]];
+const CATS=[["combos","Combos"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["cuidado","Cuidado personal"]];
+const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",combos:"img/combo-regalo.jpg"}; // fotos del carrusel de categorías
 /* Productos: archivo productos.js (id, nombre, cat, precio, desc, foto). Para una oferta agrega "antes": precioAnterior */
 /* ================================================= */
 const $=id=>document.getElementById(id),cop=n=>"$"+n.toLocaleString("es-CO")+" COP";
@@ -35,7 +36,7 @@ function render(){
   let L=PRODUCTOS.filter(p=>(!cat||p.cat===cat)&&(!q||norm(p.nombre+" "+p.desc+" "+catName(p.cat)).includes(q)));
   if(sort)L=[...L].sort((a,b)=>sort==="asc"?a.precio-b.precio:b.precio-a.precio);
   $("title").textContent=q?"Resultados de tu búsqueda":catName(cat);
-  $("grid").innerHTML=L.map(card).join("");$("empty").hidden=L.length>0;nav();
+  $("grid").innerHTML=L.map(card).join("");$("empty").hidden=L.length>0;nav();document.body.classList.toggle("home",!cat&&!q);
 }
 function route(){const h=location.hash.slice(1);cat=CATS.some(c=>c[0]===h)?h:"";render();if(h)$("title").scrollIntoView()}
 addEventListener("hashchange",route);
@@ -90,4 +91,16 @@ $("form").onsubmit=e=>{e.preventDefault();
   track("Lead",{value:s,currency:"COP"});
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener");
 };
-paint();route();
+/* ---- Carruseles ---- */
+$("cr").innerHTML=["cadenas","aretes","pulseras","combos"].map(id=>{const n=PRODUCTOS.filter(p=>p.cat===id).length;return `<a class="cc" href="#${id}"><img src="${PORTADAS[id]}" alt="" loading="lazy"><b>${catName(id)}</b><small>${n} artículo${n>1?"s":""}</small></a>`}).join("");
+const step=()=>$("cr").firstElementChild.offsetWidth+14;
+$("crPrev").onclick=()=>$("cr").scrollBy({left:-step(),behavior:"smooth"});$("crNext").onclick=()=>$("cr").scrollBy({left:step(),behavior:"smooth"});
+const hs=$("slides"),dots=$("dots"),N=hs.children.length,hc=$("hc");let cur=0,timer;
+dots.innerHTML=[...hs.children].map((_,i)=>`<button aria-label="Ir a la diapositiva ${i+1}" data-i="${i}"></button>`).join("");
+const go=i=>{if(!hs.clientWidth)return;cur=(i+N)%N;hs.scrollTo({left:cur*hs.clientWidth,behavior:"smooth"})};
+const mark=()=>{if(!hs.clientWidth)return;cur=Math.round(hs.scrollLeft/hs.clientWidth);[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===cur))};
+hs.addEventListener("scroll",mark);dots.onclick=e=>{const b=e.target.closest("[data-i]");if(b)go(+b.dataset.i)};
+$("hPrev").onclick=()=>go(cur-1);$("hNext").onclick=()=>go(cur+1);
+const play=()=>{clearInterval(timer);if(!matchMedia("(prefers-reduced-motion: reduce)").matches)timer=setInterval(()=>go(cur+1),6000)};
+["mouseenter","focusin","touchstart"].forEach(v=>hc.addEventListener(v,()=>clearInterval(timer),{passive:true}));["mouseleave","focusout"].forEach(v=>hc.addEventListener(v,play));
+paint();route();mark();play();

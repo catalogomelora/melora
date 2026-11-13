@@ -23,12 +23,19 @@ fbq('init','2195890657679403');fbq('track','PageView');
   <button class="cartbtn" id="openCart" aria-label="Abrir carrito">Carrito <span id="cnt">0</span></button>
 </header>
 <nav class="cats" id="nav" aria-label="Categorías"></nav>
-<section class="hero">
-  <div><h1>Joyas y belleza para regalar y regalarte</h1>
-  <p>Elige, agrega al carrito y envía tu pedido por WhatsApp. Envío gratis en compras mayores a <b id="umbral"></b>.</p>
-  <a class="btn" href="#cadenas">Ver cadenas y collares</a></div>
-  <ol class="steps"><li>Elige tus productos</li><li>Revisa tu carrito</li><li>Envía el pedido por WhatsApp</li></ol>
+<section class="hc home-only" id="hc" aria-roledescription="carrusel" aria-label="Destacados">
+  <div class="slides" id="slides" tabindex="0">
+    <article class="sl s1" aria-label="1 de 3"><p class="sc">Querido Santa…</p><h1>Quiero muchos regalos</h1><p>Joyas, maquillaje y cuidado personal</p><a class="dash" href="#combos">Ideas de regalo</a></article>
+    <article class="sl s2" aria-label="2 de 3"><h2>Una Navidad muy brillante</h2>
+      <div class="ho" role="img" aria-label="Ho, ho, ho"><i>h</i><img src="img/cadena-trebol-rosa.jpg" alt=""><i>,h</i><img src="img/candonga-rosa.jpg" alt=""><i>,h</i><img src="img/pulsera-san-benito-negra.jpg" alt=""><i>!</i></div>
+      <a class="dash" href="#cadenas">Ver cadenas</a></article>
+    <article class="sl s3" aria-label="3 de 3"><div><h2>Combos Melora</h2><p>Productos que se complementan, listos para regalar.</p><p class="pr">Desde $30.000</p><a class="btn" href="#combos">Ver combos</a></div><img src="img/combo-belleza.jpg" alt="Combo de belleza Melora"></article>
+  </div>
+  <button class="ar l" id="hPrev" aria-label="Anterior">‹</button><button class="ar r" id="hNext" aria-label="Siguiente">›</button><div class="dots" id="dots"></div>
 </section>
+<ol class="how home-only"><li>Elige tus productos</li><li>Revisa tu carrito</li><li>Envía el pedido por WhatsApp</li></ol>
+<section class="ccs home-only"><h2>Categorías más vendidas</h2><p>Belleza que te hace brillar</p>
+  <div class="crw"><div class="cr" id="cr"></div><button class="ar l" id="crPrev" aria-label="Anterior">‹</button><button class="ar r" id="crNext" aria-label="Siguiente">›</button></div></section>
 <main>
   <div class="bar"><h2 id="title">Todos los productos</h2>
     <label>Ordenar <select id="sort"><option value="">Destacados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select></label>

@@ -1,5 +1,21 @@
 const PRODUCTOS=[
  {
+  "id": 20,
+  "nombre": "Combo regalo Melora",
+  "cat": "combos",
+  "precio": 35000,
+  "desc": "Incluye gorro satín rosado, mascarilla de ojos y labios, mini crema de manos y aretes trébol negros. De regalo: hidratante de labios de cereza.",
+  "foto": "img/combo-regalo.jpg"
+ },
+ {
+  "id": 21,
+  "nombre": "Combo de belleza Melora",
+  "cat": "combos",
+  "precio": 30000,
+  "desc": "Incluye tónico de rosas, hidratante de labios cereza, iluminador Trendy, crema de manos de 30 g y set de brochas. De regalo: mascarilla de colágeno para labios.",
+  "foto": "img/combo-belleza.jpg"
+ },
+ {
   "id": 1,
   "nombre": "Cadena cruz baguette",
   "cat": "cadenas",
