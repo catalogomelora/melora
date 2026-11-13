@@ -1,7 +1,7 @@
 /* ===== CONFIGURACIÓN: edita solo esta parte ===== */
 const WHATSAPP="573000070102";      // +57 300 007 0102
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
-const CATS=[["combos","Combos"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["cuidado","Cuidado personal"]];
+const CATS=[["combos","Combos"],["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"],["cuidado","Cuidado personal"]];
 const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",combos:"img/combo-regalo.jpg"}; // fotos del carrusel de categorías
 /* Productos: archivo productos.js (id, nombre, cat, precio, desc, foto). Para una oferta agrega "antes": precioAnterior */
 /* ================================================= */
@@ -45,14 +45,14 @@ $("sort").onchange=e=>{sort=e.target.value;render()};
 
 /* ---- Producto (vista rápida) ---- */
 function view(id){
-  const p=byId(id);let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
-  $("pmBody").innerHTML=`<div class="pm"><img src="${p.foto}" alt="${p.nombre}"><div><button class="x" data-x aria-label="Cerrar">✕</button>
+  const p=byId(id),F=p.fotos||[p.foto];let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
+  $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" aria-label="Foto ${k+1}"><img src="${f}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
   <small>${catName(p.cat)}</small><h2>${p.nombre}</h2><p>${p.desc}</p><div class="price">${cop(p.precio)}</div>
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
   <button class="btn" data-add>Agregar al carrito</button></div></div>`;
   const b=$("pmBody");
   b.onclick=e=>{const t=e.target;
-    if(t.closest("[data-x]"))$("pm").close();
+    if(t.closest("[data-x]"))$("pm").close();const th=t.closest("[data-t]");if(th)$("gm").src=F[th.dataset.t];
     if(t.closest("[data-m]")&&n>1)$("pq").textContent=--n;
     if(t.closest("[data-p]"))$("pq").textContent=++n;
     if(t.closest("[data-add]")){add(p.id,n);$("pm").close();openCart()}};

@@ -16,6 +16,63 @@ const PRODUCTOS=[
   "foto": "img/combo-belleza.jpg"
  },
  {
+  "id": 22,
+  "nombre": "Brilli kit princesas BOMBOM",
+  "cat": "kits",
+  "precio": 30000,
+  "desc": "Incluye un body splash con destellos que deja un brillito mágico en la piel, ideal para que se sientan como haditas llenas de luz 🧚‍♀️💖, y una cremita corporal hidratante que ayuda a mantener la piel suave, nutrida y protegida durante todo el día.",
+  "foto": "img/brilli-kit.jpg"
+ },
+ {
+  "id": 23,
+  "nombre": "Kit Shimmer Glam Bom Bom + Mantequilla Corporal Bom Bom",
+  "cat": "kits",
+  "precio": 50000,
+  "desc": "Body splash y mantequilla corporal Julieta que hidratan, perfuman y dejan la piel con hermosos brillos.",
+  "foto": "img/shimmer-bombom.jpg",
+  "fotos": [
+   "img/shimmer-bombom.jpg",
+   "img/mantequilla-bombom.jpg"
+  ]
+ },
+ {
+  "id": 24,
+  "nombre": "Kit Mantequilla Coco-Vainilla + Aceite Corporal Coco",
+  "cat": "kits",
+  "precio": 48000,
+  "desc": "Mantequilla corporal Coco-Vainilla y aceite corporal de coco con destellos, que hidratan, nutren y ayudan a mejorar la apariencia. Deja la piel suave, luminosa y con un hermoso efecto brillante.",
+  "foto": "img/mantequilla-coco-vainilla.jpg",
+  "fotos": [
+   "img/mantequilla-coco-vainilla.jpg",
+   "img/aceite-coco.jpg"
+  ]
+ },
+ {
+  "id": 25,
+  "nombre": "Kit Shimmer Glam + Crema Corporal + Exfoliante Bombombun",
+  "cat": "kits",
+  "precio": 60000,
+  "desc": "Exfolia, hidrata y perfuma tu piel con Bom Bom. Incluye Shimmer Glam Julieta Bom Bom, crema corporal hidratante con destellos y exfoliante corporal Julieta Bombombun.",
+  "foto": "img/shimmer-bombom.jpg",
+  "fotos": [
+   "img/shimmer-bombom.jpg",
+   "img/crema-bombombun.jpg",
+   "img/exfoliante-bombombun.jpg"
+  ]
+ },
+ {
+  "id": 26,
+  "nombre": "Kit Crema Coco-Vainilla + Aceite Corporal Naranja",
+  "cat": "kits",
+  "precio": 40000,
+  "desc": "✨ Hidrata, ilumina y nutre tu piel 🥥🍊 Disfruta la suavidad de la crema de coco con destellos y el toque nutritivo del aceite corporal de naranja. ¡Piel radiante y deliciosa! 💛",
+  "foto": "img/crema-coco-vainilla.jpg",
+  "fotos": [
+   "img/crema-coco-vainilla.jpg",
+   "img/aceite-naranja.jpg"
+  ]
+ },
+ {
   "id": 1,
   "nombre": "Cadena cruz baguette",
   "cat": "cadenas",
@@ -35,15 +92,19 @@ const PRODUCTOS=[
   "id": 3,
   "nombre": "Cadena San Benito",
   "cat": "cadenas",
-  "precio": 22000,
+  "precio": 25000,
   "desc": "Cadena cubana tipo semi-joya de 55 cm y dije con piezas en baño de rodio.",
-  "foto": "img/cadena-san-benito.jpg"
+  "foto": "img/cadena-san-benito.jpg",
+  "fotos": [
+   "img/cadena-san-benito.jpg",
+   "img/cadena-san-benito-2.jpg"
+  ]
  },
  {
   "id": 4,
   "nombre": "Shimmer Glam Julieta Coco - Vainilla",
-  "cat": "cuidado",
-  "precio": 21000,
+  "cat": "corporal",
+  "precio": 24000,
   "desc": "Body Splash con brillos de 160 ml. Aromatiza delicadamente tu cuerpo, refresca la piel al instante y deja destellos luminosos que harán que brilles con cada movimiento.",
   "foto": "img/shimmer-glam-julieta-coco-vainilla.jpg"
  },
@@ -123,7 +184,7 @@ const PRODUCTOS=[
   "id": 14,
   "nombre": "Collar multidijes",
   "cat": "cadenas",
-  "precio": 30000,
+  "precio": 35000,
   "desc": "Collar multicharms con piezas en baño de rodio.",
   "foto": "img/collar-multidijes.jpg"
  },
@@ -131,7 +192,7 @@ const PRODUCTOS=[
   "id": 15,
   "nombre": "Cadena trébol rosa",
   "cat": "cadenas",
-  "precio": 22000,
+  "precio": 25000,
   "desc": "Cadena y dije con baño de rodio.",
   "foto": "img/cadena-trebol-rosa.jpg"
  },
@@ -166,5 +227,69 @@ const PRODUCTOS=[
   "precio": 13000,
   "desc": "Protector solar ligero e hidratante con vitamina C, SPF 50+ PA+++. Presentación de 50 g.",
   "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.jpg"
+ },
+ {
+  "id": 27,
+  "nombre": "Shimmer Glam Julieta Bom bom",
+  "cat": "corporal",
+  "precio": 24000,
+  "desc": "Body splash de 160 ml que aromatiza delicadamente tu cuerpo y deja destellos brillantes.",
+  "foto": "img/shimmer-bombom.jpg"
+ },
+ {
+  "id": 28,
+  "nombre": "Mantequilla Corporal Julieta Bom Bom",
+  "cat": "corporal",
+  "precio": 33000,
+  "desc": "Mantequilla corporal de 220 ml, línea Bombombun.",
+  "foto": "img/mantequilla-bombom.jpg"
+ },
+ {
+  "id": 29,
+  "nombre": "Mantequilla Corporal Julieta Coco-Vainilla",
+  "cat": "corporal",
+  "precio": 33000,
+  "desc": "Mantequilla corporal de 220 ml con aroma a coco y vainilla.",
+  "foto": "img/mantequilla-coco-vainilla.jpg"
+ },
+ {
+  "id": 30,
+  "nombre": "Aceite Corporal con destellos Julieta Coco",
+  "cat": "corporal",
+  "precio": 19000,
+  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
+  "foto": "img/aceite-coco.jpg"
+ },
+ {
+  "id": 31,
+  "nombre": "Crema Corporal hidratante con destellos Julieta Bombombun",
+  "cat": "corporal",
+  "precio": 25000,
+  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
+  "foto": "img/crema-bombombun.jpg"
+ },
+ {
+  "id": 32,
+  "nombre": "Exfoliante Corporal Julieta Bombombun",
+  "cat": "corporal",
+  "precio": 28000,
+  "desc": "Gel exfoliante de 450 ml con aloe vera, vitamina E y semillas de macadamia y durazno.",
+  "foto": "img/exfoliante-bombombun.jpg"
+ },
+ {
+  "id": 33,
+  "nombre": "Crema Corporal hidratante con destellos Julieta Coco - Vainilla",
+  "cat": "corporal",
+  "precio": 25000,
+  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
+  "foto": "img/crema-coco-vainilla.jpg"
+ },
+ {
+  "id": 34,
+  "nombre": "Aceite Corporal con destellos Julieta Naranja",
+  "cat": "corporal",
+  "precio": 19000,
+  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
+  "foto": "img/aceite-naranja.jpg"
  }
 ];

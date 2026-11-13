@@ -33,8 +33,8 @@ footer b{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:
 .scrim{position:fixed;inset:0;background:rgba(40,25,20,.5);z-index:20}
 dialog{border:0;border-radius:var(--r);padding:0;width:min(760px,94vw);max-height:92vh;overflow:auto}
 dialog::backdrop{background:rgba(40,25,20,.5)}
-.pm{display:grid;grid-template-columns:1fr 1fr}.pm img{width:100%;height:100%;object-fit:cover;min-height:260px}
-.pm div{padding:22px;display:flex;flex-direction:column;gap:10px}.pm h2{font-size:1.7rem}.pm p{margin:0;color:var(--mut)}
+.pm{display:grid;grid-template-columns:1fr 1fr}.gal{display:flex;flex-direction:column}.gal>img{width:100%;flex:1;object-fit:cover;min-height:260px}.th{display:flex;gap:8px;padding:8px;overflow-x:auto}.th button{flex:none;width:56px;height:56px;padding:0;border:2px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer;background:none}.th img{width:100%;height:100%;object-fit:cover}
+.pm>div:last-child{padding:22px;display:flex;flex-direction:column;gap:10px}.pm h2{font-size:1.7rem}.pm p{margin:0;color:var(--mut)}
 .q{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
 .q button{width:36px;height:36px;border:0;background:none;font-size:1.2rem;cursor:pointer}.q b{min-width:28px;text-align:center}
 .x{align-self:flex-end;border:0;background:none;font-size:1.3rem;cursor:pointer}
