@@ -6,7 +6,7 @@ const PRODUCTOS=[
   "precio": 45000,
   "estado": "disp",
   "desc": "Incluye 2 cremas de manos de 30 g, antisolar Bioaqua con vitamina C, 3 bálsamos de labios (uva, sandía y melocotón), mascarilla de colágeno para labios y aretes trébol negro.",
-  "foto": "img/combo-cuidado-total.jpg",
+  "foto": "img/combo-cuidado-total.webp",
   "incluye": [
    "2 cremas de manos de 30 g",
    "Antisolar Bioaqua Vitamina C",
@@ -22,7 +22,7 @@ const PRODUCTOS=[
   "precio": 38000,
   "estado": "disp",
   "desc": "Incluye mascarilla de colágeno para ojos y labios, gorro de satín, hidratante de labios Cereza Julieta, aretes nudo baño en rodio y crema de manos de 30 g.",
-  "foto": "img/kit-satin-brillo.jpg",
+  "foto": "img/kit-satin-brillo.webp",
   "incluye": [
    "Mascarilla de colágeno para ojos y labios",
    "Gorro de satín",
@@ -37,7 +37,7 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 30000,
   "desc": "Incluye un body splash con destellos que deja un brillito mágico en la piel, ideal para que se sientan como haditas llenas de luz 🧚‍♀️💖, y una cremita corporal hidratante que ayuda a mantener la piel suave, nutrida y protegida durante todo el día.",
-  "foto": "img/kit-brilli.jpg",
+  "foto": "img/kit-brilli.webp",
   "incluye": [
    "Body splash con destellos",
    "Cremita corporal hidratante"
@@ -50,7 +50,7 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 50000,
   "desc": "Body splash y mantequilla corporal Julieta que hidratan, perfuman y dejan la piel con hermosos brillos.",
-  "foto": "img/kit-shimmer-mantequilla.jpg",
+  "foto": "img/kit-shimmer-mantequilla.webp",
   "incluye": [
    "Shimmer Glam Julieta Bom Bom (body splash)",
    "Mantequilla corporal Julieta Bom Bom"
@@ -63,7 +63,7 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 48000,
   "desc": "Mantequilla corporal Coco-Vainilla y aceite corporal de coco con destellos, que hidratan, nutren y ayudan a mejorar la apariencia. Deja la piel suave, luminosa y con un hermoso efecto brillante.",
-  "foto": "img/kit-mantequilla-aceite-coco.jpg",
+  "foto": "img/kit-mantequilla-aceite-coco.webp",
   "incluye": [
    "Mantequilla corporal Coco-Vainilla",
    "Aceite corporal con destellos Coco"
@@ -76,7 +76,7 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 60000,
   "desc": "Exfolia, hidrata y perfuma tu piel con Bom Bom. Incluye Shimmer Glam Julieta Bom Bom, crema corporal hidratante con destellos y exfoliante corporal Julieta Bombombun.",
-  "foto": "img/kit-shimmer-crema-exfoliante.jpg",
+  "foto": "img/kit-shimmer-crema-exfoliante.webp",
   "incluye": [
    "Shimmer Glam Julieta Bom Bom",
    "Crema corporal con destellos Bombombun",
@@ -90,7 +90,7 @@ const PRODUCTOS=[
   "cat": "kits",
   "precio": 40000,
   "desc": "✨ Hidrata, ilumina y nutre tu piel 🥥🍊 Disfruta la suavidad de la crema de coco con destellos y el toque nutritivo del aceite corporal de naranja. ¡Piel radiante y deliciosa! 💛",
-  "foto": "img/kit-crema-aceite-naranja.jpg",
+  "foto": "img/kit-crema-aceite-naranja.webp",
   "incluye": [
    "Crema corporal con destellos Coco-Vainilla",
    "Aceite corporal con destellos Naranja"
@@ -103,7 +103,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 35000,
   "desc": "Cadena de 60 cm tipo semijoya en rodio, cruz con engaste tipo baguette. Incluye empaque especial.",
-  "foto": "img/cadena-cruz-baguette.jpg",
+  "foto": "img/cadena-cruz-baguette.webp",
   "estado": "pedido"
  },
  {
@@ -112,7 +112,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena con inicial en baño de oro de 24 k. Vienen por unidad. Incluye empaque especial. Escribe la letra que quieres en Notas.",
-  "foto": "img/cadena-inicial.jpg",
+  "foto": "img/cadena-inicial.webp",
   "estado": "pedido"
  },
  {
@@ -121,10 +121,10 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena cubana tipo semi-joya de 55 cm y dije con piezas en baño de rodio.",
-  "foto": "img/cadena-san-benito.jpg",
+  "foto": "img/cadena-san-benito.webp",
   "fotos": [
-   "img/cadena-san-benito.jpg",
-   "img/cadena-san-benito-2.jpg"
+   "img/cadena-san-benito.webp",
+   "img/cadena-san-benito-2.webp"
   ],
   "estado": "disp"
  },
@@ -134,7 +134,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 24000,
   "desc": "Body Splash con brillos de 160 ml. Aromatiza delicadamente tu cuerpo, refresca la piel al instante y deja destellos luminosos que harán que brilles con cada movimiento.",
-  "foto": "img/shimmer-glam-julieta-coco-vainilla.jpg",
+  "foto": "img/shimmer-glam-julieta-coco-vainilla.webp",
   "estado": "disp"
  },
  {
@@ -143,7 +143,7 @@ const PRODUCTOS=[
   "cat": "aretes",
   "precio": 14000,
   "desc": "Candongas tipo semijoya en rodio.",
-  "foto": "img/candonga-rosa.jpg",
+  "foto": "img/candonga-rosa.webp",
   "estado": "disp"
  },
  {
@@ -152,7 +152,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 16000,
   "desc": "Tónico facial de 110 ml con extractos naturales de rosa, manzanilla y aloe vera. El aliado perfecto para cuidar y mimar tu piel.",
-  "foto": "img/tonico-de-rosas-julieta.jpg",
+  "foto": "img/tonico-de-rosas-julieta.webp",
   "estado": "disp"
  },
  {
@@ -161,7 +161,7 @@ const PRODUCTOS=[
   "cat": "aretes",
   "precio": 18000,
   "desc": "Candongas tipo semijoya en rodio.",
-  "foto": "img/candona-cadena.jpg",
+  "foto": "img/candona-cadena.webp",
   "estado": "disp"
  },
  {
@@ -170,7 +170,7 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 18000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-cubana.jpg",
+  "foto": "img/pulsera-hombre-cubana.webp",
   "estado": "pedido"
  },
  {
@@ -179,7 +179,7 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 25000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-borgona.jpg",
+  "foto": "img/pulsera-hombre-borgona.webp",
   "estado": "pedido"
  },
  {
@@ -188,7 +188,7 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 25000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-chinesa.jpg",
+  "foto": "img/pulsera-hombre-chinesa.webp",
   "estado": "pedido"
  },
  {
@@ -197,7 +197,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena de 60 cm y dije en baño de rodio, con microengaste tipo semi-joya.",
-  "foto": "img/cadena-agropecuario.jpg",
+  "foto": "img/cadena-agropecuario.webp",
   "estado": "disp"
  },
  {
@@ -206,7 +206,7 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 20000,
   "desc": "Pulsera en ónix mate con medalla en acero y piezas en rodio. Incluye caja especial.",
-  "foto": "img/pulsera-san-benito-negra.jpg",
+  "foto": "img/pulsera-san-benito-negra.webp",
   "estado": "disp"
  },
  {
@@ -215,7 +215,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 30000,
   "desc": "Cadena de 45 cm y dije en baño de rodio con microengaste tipo semi-joya.",
-  "foto": "img/cadena-virgen.jpg",
+  "foto": "img/cadena-virgen.webp",
   "estado": "disp"
  },
  {
@@ -224,7 +224,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 35000,
   "desc": "Collar multicharms con piezas en baño de rodio.",
-  "foto": "img/collar-multidijes.jpg",
+  "foto": "img/collar-multidijes.webp",
   "estado": "disp"
  },
  {
@@ -233,7 +233,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena y dije con baño de rodio.",
-  "foto": "img/cadena-trebol-rosa.jpg",
+  "foto": "img/cadena-trebol-rosa.webp",
   "estado": "disp"
  },
  {
@@ -242,7 +242,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 22000,
   "desc": "Cadena con baño de rodio.",
-  "foto": "img/cadena-virgen-gold.jpg",
+  "foto": "img/cadena-virgen-gold.webp",
   "estado": "pedido"
  },
  {
@@ -251,7 +251,7 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 22000,
   "desc": "Choker de perlas con dije de la Virgen Milagrosa en baño de rodio.",
-  "foto": "img/choker-virgen-milagrosa.jpg",
+  "foto": "img/choker-virgen-milagrosa.webp",
   "estado": "pedido"
  },
  {
@@ -260,7 +260,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 13000,
   "desc": "El glowy nunca faltará en tu vida si este iluminador conforma tu maquillaje.",
-  "foto": "img/iluminador-trendy-pin-up.jpg"
+  "foto": "img/iluminador-trendy-pin-up.webp"
  },
  {
   "id": 19,
@@ -268,7 +268,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 13000,
   "desc": "Protector solar ligero e hidratante con vitamina C, SPF 50+ PA+++. Presentación de 50 g.",
-  "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.jpg"
+  "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.webp"
  },
  {
   "id": 27,
@@ -276,7 +276,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 24000,
   "desc": "Body splash de 160 ml que aromatiza delicadamente tu cuerpo y deja destellos brillantes.",
-  "foto": "img/shimmer-bombom.jpg",
+  "foto": "img/shimmer-bombom.webp",
   "estado": "disp"
  },
  {
@@ -285,7 +285,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 33000,
   "desc": "Mantequilla corporal de 220 ml, línea Bombombun.",
-  "foto": "img/mantequilla-bombom.jpg",
+  "foto": "img/mantequilla-bombom.webp",
   "estado": "disp"
  },
  {
@@ -294,7 +294,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 33000,
   "desc": "Mantequilla corporal de 220 ml con aroma a coco y vainilla.",
-  "foto": "img/mantequilla-coco-vainilla.jpg",
+  "foto": "img/mantequilla-coco-vainilla.webp",
   "estado": "disp"
  },
  {
@@ -303,7 +303,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 19000,
   "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-coco.jpg",
+  "foto": "img/aceite-coco.webp",
   "estado": "disp"
  },
  {
@@ -312,7 +312,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 25000,
   "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-bombombun.jpg",
+  "foto": "img/crema-bombombun.webp",
   "estado": "disp"
  },
  {
@@ -321,7 +321,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 28000,
   "desc": "Gel exfoliante de 450 ml con aloe vera, vitamina E y semillas de macadamia y durazno.",
-  "foto": "img/exfoliante-bombombun.jpg",
+  "foto": "img/exfoliante-bombombun.webp",
   "estado": "disp"
  },
  {
@@ -330,7 +330,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 25000,
   "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-coco-vainilla.jpg",
+  "foto": "img/crema-coco-vainilla.webp",
   "estado": "disp"
  },
  {
@@ -339,7 +339,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 19000,
   "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-naranja.jpg",
+  "foto": "img/aceite-naranja.webp",
   "estado": "disp"
  }
 ];

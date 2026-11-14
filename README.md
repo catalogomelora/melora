@@ -10,3 +10,6 @@ Sitio estático (HTML, CSS y JS). No necesita instalar nada.
 ## Editar
 - WhatsApp, categorías y valor del envío gratis: parte superior de `app.js`.
 - Productos: `productos.js` (copia un bloque, cambia los datos y pon la foto en `img/`). Para una oferta agrega `"antes": 30000`.
+
+## Enlaces por producto
+Abre `enlaces.html` en tu sitio publicado (ej. tu-sitio/enlaces.html) y copia el enlace de cada producto para tus anuncios.
