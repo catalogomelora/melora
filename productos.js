@@ -5,7 +5,8 @@ const PRODUCTOS=[
   "cat": "combos",
   "precio": 35000,
   "desc": "Incluye gorro satín rosado, mascarilla de ojos y labios, mini crema de manos y aretes trébol negros. De regalo: hidratante de labios de cereza.",
-  "foto": "img/combo-regalo.jpg"
+  "foto": "img/combo-regalo.jpg",
+  "estado": "disp"
  },
  {
   "id": 21,
@@ -13,7 +14,8 @@ const PRODUCTOS=[
   "cat": "combos",
   "precio": 30000,
   "desc": "Incluye tónico de rosas, hidratante de labios cereza, iluminador Trendy, crema de manos de 30 g y set de brochas. De regalo: mascarilla de colágeno para labios.",
-  "foto": "img/combo-belleza.jpg"
+  "foto": "img/combo-belleza.jpg",
+  "estado": "disp"
  },
  {
   "id": 22,
@@ -25,7 +27,8 @@ const PRODUCTOS=[
   "incluye": [
    "Body splash con destellos",
    "Cremita corporal hidratante"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 23,
@@ -37,7 +40,8 @@ const PRODUCTOS=[
   "incluye": [
    "Shimmer Glam Julieta Bom Bom (body splash)",
    "Mantequilla corporal Julieta Bom Bom"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 24,
@@ -49,7 +53,8 @@ const PRODUCTOS=[
   "incluye": [
    "Mantequilla corporal Coco-Vainilla",
    "Aceite corporal con destellos Coco"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 25,
@@ -62,7 +67,8 @@ const PRODUCTOS=[
    "Shimmer Glam Julieta Bom Bom",
    "Crema corporal con destellos Bombombun",
    "Exfoliante corporal Bombombun"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 26,
@@ -74,7 +80,8 @@ const PRODUCTOS=[
   "incluye": [
    "Crema corporal con destellos Coco-Vainilla",
    "Aceite corporal con destellos Naranja"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 1,
@@ -82,7 +89,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 35000,
   "desc": "Cadena de 60 cm tipo semijoya en rodio, cruz con engaste tipo baguette. Incluye empaque especial.",
-  "foto": "img/cadena-cruz-baguette.jpg"
+  "foto": "img/cadena-cruz-baguette.jpg",
+  "estado": "pedido"
  },
  {
   "id": 2,
@@ -90,7 +98,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena con inicial en baño de oro de 24 k. Vienen por unidad. Incluye empaque especial. Escribe la letra que quieres en Notas.",
-  "foto": "img/cadena-inicial.jpg"
+  "foto": "img/cadena-inicial.jpg",
+  "estado": "pedido"
  },
  {
   "id": 3,
@@ -102,7 +111,8 @@ const PRODUCTOS=[
   "fotos": [
    "img/cadena-san-benito.jpg",
    "img/cadena-san-benito-2.jpg"
-  ]
+  ],
+  "estado": "disp"
  },
  {
   "id": 4,
@@ -118,7 +128,8 @@ const PRODUCTOS=[
   "cat": "aretes",
   "precio": 14000,
   "desc": "Candongas tipo semijoya en rodio.",
-  "foto": "img/candonga-rosa.jpg"
+  "foto": "img/candonga-rosa.jpg",
+  "estado": "disp"
  },
  {
   "id": 6,
@@ -134,7 +145,8 @@ const PRODUCTOS=[
   "cat": "aretes",
   "precio": 18000,
   "desc": "Candongas tipo semijoya en rodio.",
-  "foto": "img/candona-cadena.jpg"
+  "foto": "img/candona-cadena.jpg",
+  "estado": "disp"
  },
  {
   "id": 8,
@@ -142,7 +154,8 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 18000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-cubana.jpg"
+  "foto": "img/pulsera-hombre-cubana.jpg",
+  "estado": "pedido"
  },
  {
   "id": 9,
@@ -150,7 +163,8 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 25000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-borgona.jpg"
+  "foto": "img/pulsera-hombre-borgona.jpg",
+  "estado": "pedido"
  },
  {
   "id": 10,
@@ -158,7 +172,8 @@ const PRODUCTOS=[
   "cat": "pulseras",
   "precio": 25000,
   "desc": "Pulsera para hombre con piezas doradas con baño en rodio tipo semi-joya y laca cataforética.",
-  "foto": "img/pulsera-hombre-chinesa.jpg"
+  "foto": "img/pulsera-hombre-chinesa.jpg",
+  "estado": "pedido"
  },
  {
   "id": 11,
@@ -166,23 +181,26 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena de 60 cm y dije en baño de rodio, con microengaste tipo semi-joya.",
-  "foto": "img/cadena-agropecuario.jpg"
+  "foto": "img/cadena-agropecuario.jpg",
+  "estado": "disp"
  },
  {
   "id": 12,
   "nombre": "Pulsera San Benito negra",
   "cat": "pulseras",
-  "precio": 18000,
+  "precio": 20000,
   "desc": "Pulsera en ónix mate con medalla en acero y piezas en rodio. Incluye caja especial.",
-  "foto": "img/pulsera-san-benito-negra.jpg"
+  "foto": "img/pulsera-san-benito-negra.jpg",
+  "estado": "disp"
  },
  {
   "id": 13,
   "nombre": "Cadena Virgen",
   "cat": "cadenas",
-  "precio": 25000,
+  "precio": 30000,
   "desc": "Cadena de 45 cm y dije en baño de rodio con microengaste tipo semi-joya.",
-  "foto": "img/cadena-virgen.jpg"
+  "foto": "img/cadena-virgen.jpg",
+  "estado": "disp"
  },
  {
   "id": 14,
@@ -190,7 +208,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 35000,
   "desc": "Collar multicharms con piezas en baño de rodio.",
-  "foto": "img/collar-multidijes.jpg"
+  "foto": "img/collar-multidijes.jpg",
+  "estado": "disp"
  },
  {
   "id": 15,
@@ -198,7 +217,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 25000,
   "desc": "Cadena y dije con baño de rodio.",
-  "foto": "img/cadena-trebol-rosa.jpg"
+  "foto": "img/cadena-trebol-rosa.jpg",
+  "estado": "disp"
  },
  {
   "id": 16,
@@ -206,7 +226,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 22000,
   "desc": "Cadena con baño de rodio.",
-  "foto": "img/cadena-virgen-gold.jpg"
+  "foto": "img/cadena-virgen-gold.jpg",
+  "estado": "pedido"
  },
  {
   "id": 17,
@@ -214,7 +235,8 @@ const PRODUCTOS=[
   "cat": "cadenas",
   "precio": 22000,
   "desc": "Choker de perlas con dije de la Virgen Milagrosa en baño de rodio.",
-  "foto": "img/choker-virgen-milagrosa.jpg"
+  "foto": "img/choker-virgen-milagrosa.jpg",
+  "estado": "pedido"
  },
  {
   "id": 18,
