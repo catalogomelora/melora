@@ -61,7 +61,7 @@ function view(id,fromLink){
   $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
   <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${ped?"p":""}">${ped?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2>
   <div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
-  ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b> Lo pedimos para ti.</p>`:""}
+  ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b></p>`:""}
   ${op?`<label class="opt">${op.n}<select id="opt"><option value="" disabled selected>Elige tu ${op.n.toLowerCase()}</option>${op.v.map(x=>`<option>${x}</option>`).join("")}</select><span id="opterr" role="alert"></span></label>`:""}
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
   <button class="btn" data-add>🛒 Agregar al carrito</button><button class="wa" data-wa>Pedir este producto por WhatsApp</button>
