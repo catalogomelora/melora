@@ -1,21 +1,35 @@
 const PRODUCTOS=[
  {
-  "id": 20,
-  "nombre": "Combo regalo Melora",
-  "cat": "combos",
-  "precio": 35000,
-  "desc": "Incluye gorro satín rosado, mascarilla de ojos y labios, mini crema de manos y aretes trébol negros. De regalo: hidratante de labios de cereza.",
-  "foto": "img/combo-regalo.jpg",
-  "estado": "disp"
+  "id": 35,
+  "nombre": "Combo Cuidado Total Melora",
+  "cat": "kits",
+  "precio": 45000,
+  "estado": "disp",
+  "desc": "Incluye 2 cremas de manos de 30 g, antisolar Bioaqua con vitamina C, 3 bálsamos de labios (uva, sandía y melocotón), mascarilla de colágeno para labios y aretes trébol negro.",
+  "foto": "img/combo-cuidado-total.jpg",
+  "incluye": [
+   "2 cremas de manos de 30 g",
+   "Antisolar Bioaqua Vitamina C",
+   "3 bálsamos de labios: uva, sandía y melocotón",
+   "Mascarilla de colágeno para labios",
+   "Aretes trébol negro"
+  ]
  },
  {
-  "id": 21,
-  "nombre": "Combo de belleza Melora",
-  "cat": "combos",
-  "precio": 30000,
-  "desc": "Incluye tónico de rosas, hidratante de labios cereza, iluminador Trendy, crema de manos de 30 g y set de brochas. De regalo: mascarilla de colágeno para labios.",
-  "foto": "img/combo-belleza.jpg",
-  "estado": "disp"
+  "id": 36,
+  "nombre": "Kit Satín y Brillo Melora",
+  "cat": "kits",
+  "precio": 38000,
+  "estado": "disp",
+  "desc": "Incluye mascarilla de colágeno para ojos y labios, gorro de satín, hidratante de labios Cereza Julieta, aretes nudo baño en rodio y crema de manos de 30 g.",
+  "foto": "img/kit-satin-brillo.jpg",
+  "incluye": [
+   "Mascarilla de colágeno para ojos y labios",
+   "Gorro de satín",
+   "Hidratante de labios Cereza Julieta",
+   "Aretes nudo baño en rodio",
+   "Crema de manos de 30 g"
+  ]
  },
  {
   "id": 22,
@@ -120,7 +134,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 24000,
   "desc": "Body Splash con brillos de 160 ml. Aromatiza delicadamente tu cuerpo, refresca la piel al instante y deja destellos luminosos que harán que brilles con cada movimiento.",
-  "foto": "img/shimmer-glam-julieta-coco-vainilla.jpg"
+  "foto": "img/shimmer-glam-julieta-coco-vainilla.jpg",
+  "estado": "disp"
  },
  {
   "id": 5,
@@ -134,10 +149,11 @@ const PRODUCTOS=[
  {
   "id": 6,
   "nombre": "Tónico de rosas Julieta",
-  "cat": "cuidado",
+  "cat": "corporal",
   "precio": 16000,
   "desc": "Tónico facial de 110 ml con extractos naturales de rosa, manzanilla y aloe vera. El aliado perfecto para cuidar y mimar tu piel.",
-  "foto": "img/tonico-de-rosas-julieta.jpg"
+  "foto": "img/tonico-de-rosas-julieta.jpg",
+  "estado": "disp"
  },
  {
   "id": 7,
@@ -241,7 +257,7 @@ const PRODUCTOS=[
  {
   "id": 18,
   "nombre": "Iluminador Trendy Pin Up",
-  "cat": "cuidado",
+  "cat": "corporal",
   "precio": 13000,
   "desc": "El glowy nunca faltará en tu vida si este iluminador conforma tu maquillaje.",
   "foto": "img/iluminador-trendy-pin-up.jpg"
@@ -249,7 +265,7 @@ const PRODUCTOS=[
  {
   "id": 19,
   "nombre": "Protector solar Vitamina C Bioaqua SPF 50",
-  "cat": "cuidado",
+  "cat": "corporal",
   "precio": 13000,
   "desc": "Protector solar ligero e hidratante con vitamina C, SPF 50+ PA+++. Presentación de 50 g.",
   "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.jpg"
@@ -260,7 +276,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 24000,
   "desc": "Body splash de 160 ml que aromatiza delicadamente tu cuerpo y deja destellos brillantes.",
-  "foto": "img/shimmer-bombom.jpg"
+  "foto": "img/shimmer-bombom.jpg",
+  "estado": "disp"
  },
  {
   "id": 28,
@@ -268,7 +285,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 33000,
   "desc": "Mantequilla corporal de 220 ml, línea Bombombun.",
-  "foto": "img/mantequilla-bombom.jpg"
+  "foto": "img/mantequilla-bombom.jpg",
+  "estado": "disp"
  },
  {
   "id": 29,
@@ -276,7 +294,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 33000,
   "desc": "Mantequilla corporal de 220 ml con aroma a coco y vainilla.",
-  "foto": "img/mantequilla-coco-vainilla.jpg"
+  "foto": "img/mantequilla-coco-vainilla.jpg",
+  "estado": "disp"
  },
  {
   "id": 30,
@@ -284,7 +303,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 19000,
   "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-coco.jpg"
+  "foto": "img/aceite-coco.jpg",
+  "estado": "disp"
  },
  {
   "id": 31,
@@ -292,7 +312,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 25000,
   "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-bombombun.jpg"
+  "foto": "img/crema-bombombun.jpg",
+  "estado": "disp"
  },
  {
   "id": 32,
@@ -300,7 +321,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 28000,
   "desc": "Gel exfoliante de 450 ml con aloe vera, vitamina E y semillas de macadamia y durazno.",
-  "foto": "img/exfoliante-bombombun.jpg"
+  "foto": "img/exfoliante-bombombun.jpg",
+  "estado": "disp"
  },
  {
   "id": 33,
@@ -308,7 +330,8 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 25000,
   "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-coco-vainilla.jpg"
+  "foto": "img/crema-coco-vainilla.jpg",
+  "estado": "disp"
  },
  {
   "id": 34,
@@ -316,6 +339,7 @@ const PRODUCTOS=[
   "cat": "corporal",
   "precio": 19000,
   "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-naranja.jpg"
+  "foto": "img/aceite-naranja.jpg",
+  "estado": "disp"
  }
 ];

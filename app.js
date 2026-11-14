@@ -1,8 +1,8 @@
 /* ===== CONFIGURACIÓN: edita solo esta parte ===== */
 const WHATSAPP="573000070102";      // +57 300 007 0102
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
-const CATS=[["combos","Combos"],["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"],["cuidado","Cuidado personal"]];
-const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",combos:"img/combo-regalo.jpg",kits:"img/brilli-kit.jpg"}; // fotos del carrusel de categorías
+const CATS=[["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"]];
+const PORTADAS={cadenas:"img/cadena-trebol-rosa.jpg",aretes:"img/candonga-rosa.jpg",pulseras:"img/pulsera-san-benito-negra.jpg",kits:"img/brilli-kit.jpg"}; // fotos del carrusel de categorías
 /* Productos: archivo productos.js (id, nombre, cat, precio, desc, foto). Para una oferta agrega "antes": precioAnterior */
 /* ================================================= */
 const $=id=>document.getElementById(id),cop=n=>"$"+n.toLocaleString("es-CO")+" COP";
