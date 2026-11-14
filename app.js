@@ -95,7 +95,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 $("form").onsubmit=e=>{e.preventDefault();
   const s=subtotal(),free=s>ENVIO_GRATIS,v=id=>$(id).value.trim();
   const items=lines().map(({p,n})=>`• ${n} x ${p.nombre}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}`).join("\n");
-  const t=`¡Hola MELORA! Quiero hacer este pedido:\n\n${items}\n\nSubtotal: ${cop(s)}\nEnvío: ${free?"Gratis":"por confirmar"}\nTotal: ${cop(s)}\n\nNombre: ${v("nom")}\nCiudad: ${v("ciu")}\nDirección: ${v("dir")}`+(v("not")?`\nNotas: ${v("not")}`:"");
+  const t=`¡Hola MELORA! Quiero hacer este pedido:\n\n${items}\n\nSubtotal: ${cop(s)}\nEnvío: ${free?"Gratis":"por confirmar"}\nTotal: ${cop(s)}\n\nNombre: ${v("nom")}\nMunicipio: ${v("mun")}\nBarrio o vereda: ${v("bar")}\nDirección: ${v("dir")}`;
   track("Lead",{value:s,currency:"COP"});
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener");
 };

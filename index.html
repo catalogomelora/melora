@@ -9,7 +9,7 @@
 <link rel="icon" href="img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','2195890657679403');fbq('track','PageView');
@@ -45,9 +45,13 @@ fbq('init','2195890657679403');fbq('track','PageView');
   <div class="grid" id="grid"></div>
   <p class="empty" id="empty" hidden>No encontramos ese producto. Escríbenos por WhatsApp y te ayudamos.</p>
 </main>
+<section class="env" aria-labelledby="envT"><div>
+  <div><h2 id="envT">Envíos seguros</h2><p>Llevamos tu pedido a <b>Betulia, Concordia y Urrao</b> en nuestra caja MELORA, lista para regalar. Envío gratis en compras mayores a <span class="u"></span>.</p>
+  <ul><li>Betulia</li><li>Concordia</li><li>Urrao</li></ul></div>
+  <img src="img/caja-melora.webp" alt="Caja de entrega MELORA: ¡Hola, Hermosa! Este detalle es para ti" width="440" loading="lazy"></div></section>
 <footer>
   <b>MELORA</b><p>Belleza, estilo y tu esencia.</p>
-  <p>Envío gratis en compras mayores a <span class="u"></span>. En compras menores, confirmamos el costo de envío por WhatsApp según tu ciudad.</p>
+  <p>Envío gratis en compras mayores a <span class="u"></span>. En compras menores, confirmamos el costo de envío por WhatsApp según tu municipio. Entregamos en Betulia, Concordia y Urrao.</p>
   <a class="btn" id="fwa" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 </footer>
 
@@ -60,14 +64,14 @@ fbq('init','2195890657679403');fbq('track','PageView');
   <div class="items" id="items"></div>
   <form class="df" id="form">
     <input id="nom" placeholder="Tu nombre" autocomplete="name" required>
-    <input id="ciu" placeholder="Ciudad" autocomplete="address-level2" required>
+    <select id="mun" required aria-label="Municipio"><option value="" disabled selected>Municipio</option><option>Betulia</option><option>Concordia</option><option>Urrao</option></select>
+    <input id="bar" placeholder="Barrio o vereda" autocomplete="address-level3" required>
     <input id="dir" placeholder="Dirección de entrega" autocomplete="street-address" required>
-    <textarea id="not" rows="2" placeholder="Notas (inicial, talla, color…)"></textarea>
     <dl class="tot"><div><dt>Subtotal</dt><dd id="sub"></dd></div><div><dt>Envío</dt><dd id="env"></dd></div><div class="g"><dt>Total</dt><dd id="tot"></dd></div></dl>
     <button class="btn" type="submit">Enviar pedido por WhatsApp</button>
   </form>
 </aside>
-<script src="productos.js?v=7"></script>
-<script src="app.js?v=7"></script>
+<script src="productos.js?v=8"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

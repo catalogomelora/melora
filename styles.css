@@ -49,7 +49,7 @@ dialog::backdrop{background:rgba(40,25,20,.5)}
 .it img{width:64px;height:64px;object-fit:cover;border-radius:10px}.it h4{margin:0;font-size:.92rem}.it small{color:var(--mut)}
 .it .rm{border:0;background:none;color:var(--mut);text-decoration:underline;cursor:pointer;padding:0;font-size:.82rem}
 .df{padding:12px 16px calc(16px + env(safe-area-inset-bottom));display:grid;gap:8px;border-top:1px solid var(--line)}
-.df input,.df textarea{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.df input,.df textarea,.df select{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
 .tot{margin:4px 0;display:grid;gap:2px}.tot div{display:flex;justify-content:space-between}.tot dt,.tot dd{margin:0}.tot .g{font-weight:600;font-size:1.1rem;color:var(--rose)}
 @media(max-width:700px){.pm{grid-template-columns:1fr}.brand b{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -96,3 +96,12 @@ body:not(.home) .home-only{display:none}
 .fab.on{transform:none}.fab .btn{padding:10px 18px;white-space:nowrap}
 footer{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
 @media(max-width:480px){.fab{padding-left:16px;font-size:.9rem}.fab .btn{padding:10px 14px}}
+.df select{width:100%}
+.env{max-width:1100px;margin:32px auto 24px;padding:0 16px}
+.env>div{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;padding:36px 40px;border-radius:var(--r);background:radial-gradient(circle at 80% 40%,#8a2050,#4a0f2c 55%,#2b0719);color:#fbe9d3;overflow:hidden}
+.env h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.06em;text-transform:uppercase;color:#f1c8a4;margin:0 0 10px}
+.env p{margin:0 0 20px;max-width:46ch}
+.env ul{list-style:none;margin:0;padding:0;display:flex;gap:10px;flex-wrap:wrap}
+.env li{border:1px solid #f1c8a4;color:#f1c8a4;padding:8px 18px;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+.env img{width:100%;max-width:440px;height:auto;justify-self:center;rotate:-5deg;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
+@media(max-width:700px){.env>div{grid-template-columns:1fr;padding:28px 22px;text-align:center}.env ul{justify-content:center}.env p{margin-inline:auto}}
