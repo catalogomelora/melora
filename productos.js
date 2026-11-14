@@ -111,9 +111,42 @@ const PRODUCTOS=[
   "nombre": "Cadena inicial",
   "cat": "cadenas",
   "precio": 25000,
-  "desc": "Cadena con inicial en baño de oro de 24 k. Vienen por unidad. Incluye empaque especial. Escribe la letra que quieres en Notas.",
+  "desc": "Cadena con inicial en baño de oro de 24 k. Vienen por unidad. Incluye empaque especial.",
   "foto": "img/cadena-inicial.webp",
-  "estado": "pedido"
+  "estado": "pedido",
+  "opciones": [
+   {
+    "n": "Inicial",
+    "v": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E",
+     "F",
+     "G",
+     "H",
+     "I",
+     "J",
+     "K",
+     "L",
+     "M",
+     "N",
+     "O",
+     "P",
+     "Q",
+     "R",
+     "S",
+     "T",
+     "U",
+     "V",
+     "W",
+     "X",
+     "Y",
+     "Z"
+    ]
+   }
+  ]
  },
  {
   "id": 3,

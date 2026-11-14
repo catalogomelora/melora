@@ -1,5 +1,6 @@
 /* ===== CONFIGURACIÓN: edita solo esta parte ===== */
 const WHATSAPP="573000070102";      // +57 300 007 0102
+const DIAS_PEDIDO="7 a 8 días";   // tiempo de entrega de los productos bajo pedido
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
 const CATS=[["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"]];
 const PORTADAS={cadenas:"img/cadena-trebol-rosa.webp",aretes:"img/candonga-rosa.webp",pulseras:"img/pulsera-san-benito-negra.webp",kits:"img/brilli-kit.webp"}; // fotos del carrusel de categorías
@@ -13,10 +14,12 @@ let cart={},cat="",q="",sort="";
 try{cart=JSON.parse(localStorage.getItem("melora-cart")||"{}")}catch(e){}
 const save=()=>{try{localStorage.setItem("melora-cart",JSON.stringify(cart))}catch(e){}};
 const byId=id=>PRODUCTOS.find(p=>p.id==id);
-const lines=()=>Object.entries(cart).map(([id,n])=>({p:byId(id),n})).filter(l=>l.p);
+const lines=()=>Object.entries(cart).map(([k,n])=>{const[id,o]=k.split("|");return{p:byId(id),n,o,k}}).filter(l=>l.p);
+const olabel=(p,o)=>o?` (${p.opciones[0].n}: ${o})`:"";
 const subtotal=()=>lines().reduce((s,l)=>s+l.p.precio*l.n,0);
 const count=()=>lines().reduce((s,l)=>s+l.n,0);
 
+document.querySelectorAll(".dp").forEach(e=>e.textContent=DIAS_PEDIDO);
 document.querySelectorAll(".u,#umbral").forEach(e=>e.textContent=cop(ENVIO_GRATIS).replace(" COP",""));
 $("promo").textContent="Envío gratis en compras mayores a "+cop(ENVIO_GRATIS).replace(" COP","")+" · Pedidos por WhatsApp";
 $("fwa").href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("¡Hola MELORA! Quiero más información.");
@@ -31,7 +34,7 @@ function card(p){
   return `<article class="card"><button class="ph" data-v="${p.id}" aria-label="Ver ${p.nombre}">${tag(p)}<img src="${tn(p.foto)}" alt="${p.nombre}" loading="lazy" decoding="async"></button>
   <div class="in"><small>${catName(p.cat)}</small><h3>${p.nombre}</h3>
   <div class="price">${off?`<s>${cop(p.antes)}</s> `:""}${cop(p.precio)}${p.incluye?`<small>Precio por el kit de ${p.incluye.length} productos</small>`:""}</div>
-  <button class="add" data-a="${p.id}">🛒 Agregar al carrito</button>
+  <button class="add" data-a="${p.id}">${p.opciones?"🛒 Elegir "+p.opciones[0].n.toLowerCase():"🛒 Agregar al carrito"}</button>
   <button class="wa" data-w="${p.id}">Pedir por WhatsApp</button></div></article>`;
 }
 function render(){
@@ -49,32 +52,34 @@ $("sort").onchange=e=>{sort=e.target.value;render()};
 
 /* ---- Enlaces, miniaturas y pedido directo ---- */
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),tn=f=>f.replace("img/","img/t/"),plink=p=>"#p-"+p.id+"-"+slug(p.nombre),full=p=>location.href.split(/[#?]/)[0]+plink(p);
-function askWA(p,n){track("Lead",{content_name:p.nombre,value:p.precio*n,currency:"COP"});
-  const t=`¡Hola MELORA! Quiero pedir este producto:\n\n• ${n} x ${p.nombre}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}\n${full(p)}\n\nMi municipio es: `;
+function askWA(p,n,o){track("Lead",{content_name:p.nombre,value:p.precio*n,currency:"COP"});
+  const t=`¡Hola MELORA! Quiero pedir este producto:\n\n• ${n} x ${p.nombre}${olabel(p,o)}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}\n${full(p)}\n\nMi municipio es: `;
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener")}
-function copy(b,p){const u=full(p),ok=()=>{b.textContent="✓ Enlace copiado";setTimeout(()=>b.textContent="🔗 Copiar enlace de este producto",1600)};
-  (navigator.clipboard?navigator.clipboard.writeText(u).then(ok):Promise.reject()).catch(()=>prompt("Copia el enlace:",u))}
 /* ---- Producto (vista rápida) ---- */
 function view(id,fromLink){
-  const p=byId(id),F=p.fotos||[p.foto];let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
+  const p=byId(id),F=p.fotos||[p.foto],op=p.opciones&&p.opciones[0],ped=p.estado==="pedido";let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
   $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
-  <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${p.estado==="pedido"?"p":""}">${p.estado==="pedido"?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2><p>${p.desc}</p>${p.estado==="pedido"?"<p><b>Bajo pedido:</b> lo pedimos para ti y confirmamos el tiempo de entrega por WhatsApp.</p>":""}${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}<div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
+  <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${ped?"p":""}">${ped?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2>
+  <div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
+  ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b> Lo pedimos para ti.</p>`:""}
+  ${op?`<label class="opt">${op.n}<select id="opt"><option value="" disabled selected>Elige tu ${op.n.toLowerCase()}</option>${op.v.map(x=>`<option>${x}</option>`).join("")}</select><span id="opterr" role="alert"></span></label>`:""}
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
-  <button class="btn" data-add>🛒 Agregar al carrito</button><button class="wa" data-wa>Pedir este producto por WhatsApp</button><button class="lnk" data-copy>🔗 Copiar enlace de este producto</button></div></div>`;
-  const b=$("pmBody");
+  <button class="btn" data-add>🛒 Agregar al carrito</button><button class="wa" data-wa>Pedir este producto por WhatsApp</button>
+  <p>${p.desc}</p>${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>`;
+  const b=$("pmBody"),pick=()=>{if(!op)return"";const v=$("opt").value;if(!v){$("opt").classList.add("bad");$("opterr").textContent="Elige tu "+op.n.toLowerCase()+" para continuar";$("opt").focus();return null}return v};
   b.onclick=e=>{const t=e.target;
     if(t.closest("[data-x]"))$("pm").close();const th=t.closest("[data-t]");if(th)$("gm").src=F[th.dataset.t];
     if(t.closest("[data-m]")&&n>1)$("pq").textContent=--n;
     if(t.closest("[data-p]"))$("pq").textContent=++n;
-    if(t.closest("[data-add]")){add(p.id,n);$("pm").close();feedback()}
-    if(t.closest("[data-wa]"))askWA(p,n);
-    if(t.closest("[data-copy]"))copy(t.closest("[data-copy]"),p)};
+    if(t.closest("[data-add]")){const o=pick();if(o===null)return;add(p.id,n,o);$("pm").close();feedback()}
+    if(t.closest("[data-wa]")){const o=pick();if(o===null)return;askWA(p,n,o)}};
+  b.onchange=e=>{if(e.target.id==="opt"){e.target.classList.remove("bad");$("opterr").textContent=""}};
   $("pm").showModal();if(!fromLink)history.replaceState(null,"",plink(p));
 }
 $("pm").addEventListener("click",e=>{if(e.target===$("pm"))$("pm").close()});
 $("pm").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",cat?"#"+cat:location.pathname+location.search)});
 $("grid").onclick=e=>{const v=e.target.closest("[data-v]"),a=e.target.closest("[data-a]");
-  const w=e.target.closest("[data-w]");if(v)view(v.dataset.v);if(a){add(a.dataset.a,1);feedback(a)}if(w)askWA(byId(w.dataset.w),1)};
+  const w=e.target.closest("[data-w]");if(v)view(v.dataset.v);if(a){const pa=byId(a.dataset.a);if(pa.opciones)view(pa.id);else{add(pa.id,1);feedback(a)}}if(w){const pw=byId(w.dataset.w);if(pw.opciones)view(pw.id);else askWA(pw,1)}};
 
 /* ---- Carrito ---- */
 let first=true;
@@ -82,13 +87,13 @@ function feedback(b){const c=$("openCart");c.classList.remove("bump");void c.off
   if(b){b.dataset.t=b.dataset.t||b.innerHTML;b.classList.add("ok");b.textContent="✓ Agregado al carrito";setTimeout(()=>{b.classList.remove("ok");b.innerHTML=b.dataset.t},1500)}
   if(first){first=false;openCart()}}
 const fab=()=>$("fab").classList.toggle("on",count()>0&&!$("drawer").classList.contains("on"));
-function add(id,n){cart[id]=(cart[id]||0)+n;save();paint();const p=byId(id);track("AddToCart",{content_name:p.nombre,value:p.precio*n,currency:"COP"})}
+function add(id,n,o){const k=o?id+"|"+o:""+id;cart[k]=(cart[k]||0)+n;save();paint();const p=byId(id);track("AddToCart",{content_name:p.nombre,value:p.precio*n,currency:"COP"})}
 function paint(){
   const s=subtotal(),free=s>ENVIO_GRATIS,L=lines();
   $("cnt").textContent=count();
-  $("items").innerHTML=L.length?L.map(({p,n})=>`<div class="it"><img src="${tn(p.foto)}" alt=""><div><h4>${p.nombre}</h4><small>${cop(p.precio)}</small><br>
-    <div class="q"><button data-d="${p.id}" aria-label="Menos">−</button><b>${n}</b><button data-i="${p.id}" aria-label="Más">+</button></div></div>
-    <div><b>${cop(p.precio*n)}</b><br><button class="rm" data-r="${p.id}">Quitar</button></div></div>`).join("")
+  $("items").innerHTML=L.length?L.map(({p,n,o,k})=>`<div class="it"><img src="${tn(p.foto)}" alt=""><div><h4>${p.nombre}${olabel(p,o)}</h4><small>${cop(p.precio)}</small><br>
+    <div class="q"><button data-d="${k}" aria-label="Menos">−</button><b>${n}</b><button data-i="${k}" aria-label="Más">+</button></div></div>
+    <div><b>${cop(p.precio*n)}</b><br><button class="rm" data-r="${k}">Quitar</button></div></div>`).join("")
     :`<p class="empty">Tu carrito está vacío. Agrega productos para armar tu pedido.</p>`;
   const falta=ENVIO_GRATIS+1-s;
   $("ship").innerHTML=free?"<b>¡Tienes envío gratis!</b>":(s?`Te faltan <b>${cop(falta)}</b> para el envío gratis.`:`Envío gratis en compras mayores a ${cop(ENVIO_GRATIS)}.`)+`<i><b style="width:${Math.min(100,s/ENVIO_GRATIS*100)}%"></b></i>`;
@@ -107,7 +112,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 
 $("form").onsubmit=e=>{e.preventDefault();
   const s=subtotal(),free=s>ENVIO_GRATIS,v=id=>$(id).value.trim();
-  const items=lines().map(({p,n})=>`• ${n} x ${p.nombre}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}`).join("\n");
+  const items=lines().map(({p,n,o})=>`• ${n} x ${p.nombre}${olabel(p,o)}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}`).join("\n");
   const t=`¡Hola MELORA! Quiero hacer este pedido:\n\n${items}\n\nSubtotal: ${cop(s)}\nEnvío: ${free?"Gratis":"por confirmar"}\nTotal: ${cop(s)}\n\nNombre: ${v("nom")}\nMunicipio: ${v("mun")}\nBarrio o vereda: ${v("bar")}\nDirección: ${v("dir")}`;
   track("Lead",{value:s,currency:"COP"});
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener");

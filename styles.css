@@ -109,3 +109,5 @@ footer{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
 .lnk{align-self:flex-start;border:0;background:none;color:var(--mut);text-decoration:underline;cursor:pointer;padding:4px 0;font-size:.88rem}
 .pm{align-items:start}
 @media(min-width:701px){.gal{position:sticky;top:0}}
+.eta{color:#8a5200}.opt{display:flex;flex-direction:column;gap:6px;font-weight:600}
+.opt select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit}.opt select.bad{border-color:#b3261e}.opt span{color:#b3261e;font-weight:400;font-size:.85rem}
