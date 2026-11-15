@@ -211,6 +211,15 @@ const PRODUCTOS=[
   ]
  },
  {
+  "id": 40,
+  "nombre": "Topo nudo glam",
+  "cat": "aretes",
+  "precio": 13000,
+  "estado": "disp",
+  "desc": "Topos con baño de rodio.",
+  "foto": "img/topo-nudo-glam.webp"
+ },
+ {
   "id": 8,
   "nombre": "Pulsera hombre cubana",
   "cat": "pulseras",
