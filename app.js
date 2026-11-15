@@ -2,7 +2,7 @@
 const WHATSAPP="573000070102";      // +57 300 007 0102
 const DIAS_PEDIDO="7 a 8 días";   // tiempo de entrega de los productos bajo pedido
 const ENVIO_GRATIS=120000;          // envío gratis en compras MAYORES a este valor
-const CATS=[["kits","Kits cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"]];
+const CATS=[["kits","Kits cuidado corporal"],["joyas","Joyas"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"],["corporal","Cuidado corporal"]];
 const PORTADAS={cadenas:"img/cadena-trebol-rosa.webp",aretes:"img/candonga-rosa.webp",pulseras:"img/pulsera-san-benito-negra.webp",kits:"img/brilli-kit.webp"}; // fotos del carrusel de categorías
 /* Productos: archivo productos.js (id, nombre, cat, precio, desc, foto). Para una oferta agrega "antes": precioAnterior */
 /* ================================================= */
@@ -38,7 +38,7 @@ function card(p){
   <button class="wa" data-w="${p.id}">Pedir por WhatsApp</button></div></article>`;
 }
 function render(){
-  let L=PRODUCTOS.filter(p=>(!cat||p.cat===cat)&&(!q||norm(p.nombre+" "+p.desc+" "+catName(p.cat)).includes(q)));
+  let L=PRODUCTOS.filter(p=>(!cat||p.cat===cat||(cat==="joyas"&&["cadenas","aretes","pulseras"].includes(p.cat)))&&(!q||norm(p.nombre+" "+p.desc+" "+catName(p.cat)).includes(q)));
   if(sort)L=[...L].sort((a,b)=>sort==="asc"?a.precio-b.precio:b.precio-a.precio);
   $("title").textContent=q?"Resultados de tu búsqueda":catName(cat);
   $("grid").innerHTML=L.map(card).join("");$("empty").hidden=L.length>0;nav();document.body.classList.toggle("home",!cat&&!q);

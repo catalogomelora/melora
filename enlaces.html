@@ -1,13 +1,15 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Enlaces por producto · MELORA</title>
-<style>body{font:16px/1.5 system-ui,sans-serif;max-width:900px;margin:0 auto;padding:20px;color:#3b2a24;background:#fffaf8}h1{margin:0 0 4px}input{width:100%;padding:10px 14px;margin:12px 0;border:1px solid #f0dccd;border-radius:999px;font:inherit}
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:900px;margin:0 auto;padding:20px;color:#3b2a24;background:#fffaf8}h1{margin:0 0 4px}h2{margin:22px 0 4px;font-size:1.2rem}input{width:100%;padding:10px 14px;margin:12px 0;border:1px solid #f0dccd;border-radius:999px;font:inherit}
 table{width:100%;border-collapse:collapse}td{padding:8px 6px;border-bottom:1px solid #f0dccd;vertical-align:middle}td img{width:48px;height:48px;object-fit:cover;border-radius:8px}small{color:#7d6a62;word-break:break-all}
 button{border:0;border-radius:999px;background:#c93b6f;color:#fff;font-weight:600;padding:8px 14px;cursor:pointer;white-space:nowrap}button.ok{background:#23774a}</style></head><body>
 <h1>Enlaces por producto</h1><p>Copia el enlace de cada producto y úsalo en tus anuncios de Meta. Al abrirlo, el cliente ve directo ese producto.</p>
-<input id="f" placeholder="Buscar producto o kit…" aria-label="Buscar"><table id="t"></table>
+<h2>Categorías</h2><table id="c"></table><h2>Productos</h2><input id="f" placeholder="Buscar producto o kit…" aria-label="Buscar"><table id="t"></table>
 <script src="productos.js?v=9"></script><script>
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""),slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),base=location.href.split(/[#?]/)[0].replace(/enlaces\.html$/,"");
 const link=p=>base+"#p-"+p.id+"-"+slug(p.nombre),t=document.getElementById("t");
 function draw(q){t.innerHTML=PRODUCTOS.filter(p=>norm(p.nombre).includes(norm(q))).map(p=>`<tr><td><img src="${p.foto.replace("img/","img/t/")}" alt=""></td><td><b>${p.nombre}</b><br><small>${link(p)}</small></td><td><button data-u="${link(p)}">Copiar</button></td></tr>`).join("")}
 t.onclick=e=>{const b=e.target.closest("[data-u]");if(!b)return;const u=b.dataset.u,ok=()=>{b.textContent="¡Copiado!";b.classList.add("ok");setTimeout(()=>{b.textContent="Copiar";b.classList.remove("ok")},1500)};navigator.clipboard?navigator.clipboard.writeText(u).then(ok,()=>prompt("Copia el enlace:",u)):prompt("Copia el enlace:",u)};
 document.getElementById("f").oninput=e=>draw(e.target.value);draw("");
+const CAT=[["joyas","Todas las joyas"],["kits","Kits cuidado corporal"],["corporal","Cuidado corporal"],["cadenas","Cadenas y collares"],["aretes","Aretes"],["pulseras","Pulseras"]],c=document.getElementById("c");
+c.innerHTML=CAT.map(([i,n])=>`<tr><td></td><td><b>${n}</b><br><small>${base+"#"+i}</small></td><td><button data-u="${base+"#"+i}">Copiar</button></td></tr>`).join("");c.onclick=t.onclick;
 </script></body></html>
