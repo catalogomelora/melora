@@ -9,7 +9,7 @@
 <link rel="icon" href="img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=24">
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','2195890657679403');fbq('track','PageView');
@@ -20,7 +20,7 @@ fbq('init','2195890657679403');fbq('track','PageView');
 <header class="top">
   <a class="brand" href="#" aria-label="MELORA, inicio"><img src="img/logo.jpg" alt="" width="44" height="44"><b>MELORA</b></a>
   <input id="q" type="search" placeholder="Buscar: cadena, aretes, protector solar…" aria-label="Buscar producto">
-  <button class="cartbtn" id="openCart" aria-label="Abrir carrito">Carrito <span id="cnt">0</span></button>
+  <a class="hwa" id="hwa" target="_blank" rel="noopener">WhatsApp</a>
 </header>
 <nav class="cats" id="nav" aria-label="Categorías"></nav>
 <section class="hc home-only" id="hc" aria-roledescription="carrusel" aria-label="Destacados">
@@ -33,14 +33,14 @@ fbq('init','2195890657679403');fbq('track','PageView');
   </div>
   <button class="ar l" id="hPrev" aria-label="Anterior">‹</button><button class="ar r" id="hNext" aria-label="Siguiente">›</button><div class="dots" id="dots"></div>
 </section>
-<ol class="how home-only"><li>Toca «Agregar al carrito»</li><li>Revisa tu carrito 🛒</li><li>Envía tu pedido por WhatsApp</li></ol>
+<ol class="how home-only"><li>Elige tu producto</li><li>Toca «Comprar por WhatsApp»</li><li>Confirma tus datos en el chat</li></ol>
 <section class="ccs home-only"><h2>Categorías más vendidas</h2><p>Belleza que te hace brillar</p>
   <div class="crw"><div class="cr" id="cr"></div><button class="ar l" id="crPrev" aria-label="Anterior">‹</button><button class="ar r" id="crNext" aria-label="Siguiente">›</button></div></section>
 <main>
   <div class="bar"><h2 id="title">Todos los productos</h2>
     <label>Ordenar <select id="sort"><option value="">Destacados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select></label>
   </div>
-  <p class="hint">👉 Toca <b>Agregar al carrito</b> en los productos que quieras. Al final, <b>envía tu pedido por WhatsApp</b>.</p>
+  <p class="hint">👉 Toca un producto, mira sus detalles y <b>pídelo por WhatsApp</b>. Envío gratis en compras mayores a <b class="u"></b>.</p>
   <div class="leg"><span><b>Disponible</b>En stock, listo para enviar</span><span><b class="p">Bajo pedido</b>Llega en <span class="dp"></span></span></div>
   <div class="grid" id="grid"></div>
   <p class="empty" id="empty" hidden>No encontramos ese producto. Escríbenos por WhatsApp y te ayudamos.</p>
@@ -55,23 +55,8 @@ fbq('init','2195890657679403');fbq('track','PageView');
   <a class="btn" id="fwa" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
 </footer>
 
-<div class="fab" id="fab"><span id="fabTxt"></span><button class="btn" id="fabGo">Ver carrito y pedir</button></div>
-<div class="scrim" id="scrim" hidden></div>
 <dialog id="pm"><div id="pmBody"></div></dialog>
-<aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-hidden="true">
-  <div class="dh"><h2>Tu carrito</h2><button id="closeCart" aria-label="Cerrar carrito">✕</button></div>
-  <div class="ship" id="ship"></div>
-  <div class="items" id="items"></div>
-  <form class="df" id="form">
-    <input id="nom" placeholder="Tu nombre" autocomplete="name" required>
-    <select id="mun" required aria-label="Municipio"><option value="" disabled selected>Municipio</option><option>Betulia</option><option>Concordia</option><option>Urrao</option></select>
-    <input id="bar" placeholder="Barrio o vereda" autocomplete="address-level3" required>
-    <input id="dir" placeholder="Dirección de entrega" autocomplete="street-address" required>
-    <dl class="tot"><div><dt>Subtotal</dt><dd id="sub"></dd></div><div><dt>Envío</dt><dd id="env"></dd></div><div class="g"><dt>Total</dt><dd id="tot"></dd></div></dl>
-    <button class="btn" type="submit">Enviar pedido por WhatsApp</button>
-  </form>
-</aside>
-<script src="productos.js?v=22"></script>
-<script src="app.js?v=22"></script>
+<script src="productos.js?v=24"></script>
+<script src="app.js?v=24"></script>
 </body>
 </html>
