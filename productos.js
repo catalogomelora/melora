@@ -243,6 +243,15 @@ const PRODUCTOS=[
   "estado": "disp"
  },
  {
+  "id": 37,
+  "nombre": "Pulsera virgen cruz",
+  "cat": "pulseras",
+  "precio": 22000,
+  "desc": "Pulsera tipo decenario con baño de rodio.",
+  "foto": "img/pulsera-virgen-cruz.webp",
+  "estado": "pedido"
+ },
+ {
   "id": 13,
   "nombre": "Cadena Virgen",
   "cat": "cadenas",
