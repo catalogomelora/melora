@@ -62,7 +62,7 @@ function rel(p){if(p.cat!=="corporal")return"";const L=PRODUCTOS.filter(x=>x.cat
 /* ---- Producto (vista rápida) ---- */
 function view(id,fromLink){
   const p=byId(id),F=p.fotos||[p.foto],op=p.opciones&&p.opciones[0],ped=p.estado==="pedido";let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
-  $("pmBody").innerHTML=`<div class="pm"><div class="top"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
+  $("pmBody").innerHTML=`<div class="pm"><div class="pmt"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
   <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${ped?"p":""}">${ped?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2>
   <div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
   ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b></p>`:""}
