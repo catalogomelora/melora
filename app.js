@@ -31,7 +31,7 @@ function card(p){
   return `<article class="card"><button class="ph" data-v="${p.id}" aria-label="Ver ${p.nombre}">${tag(p)}<img src="${tn(p.foto)}" alt="${p.nombre}" loading="lazy" decoding="async"></button>
   <div class="in"><small>${catName(p.cat)}</small><h3>${p.nombre}</h3>
   <div class="price">${off?`<s>${cop(p.antes)}</s> `:""}${cop(p.precio)}${p.incluye?`<small>Precio por el kit de ${p.incluye.length} productos</small>`:""}</div>
-  <button class="wa" data-w="${p.id}">Pedir por WhatsApp</button></div></article>`;
+  <button class="wa" data-w="${p.id}"><img class="wi" src="img/whatsapp.png" alt="" width="22" height="22">Pedir por WhatsApp</button></div></article>`;
 }
 function render(){
   let L=PRODUCTOS.filter(p=>(!cat||p.cat===cat||(cat==="joyas"&&["cadenas","aretes","pulseras"].includes(p.cat)))&&(!q||norm(p.nombre+" "+p.desc+" "+catName(p.cat)).includes(q)));
@@ -49,7 +49,7 @@ $("sort").onchange=e=>{sort=e.target.value;render()};
 /* ---- Enlaces, miniaturas y pedido directo ---- */
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),tn=f=>f.replace("img/","img/t/"),plink=p=>"#p-"+p.id+"-"+slug(p.nombre),full=p=>location.href.split(/[#?]/)[0]+plink(p);
 function askWA(p,n,o){track("Lead",{content_name:p.nombre,value:p.precio*n,currency:"COP"});
-  const t=`¡Hola MELORA! Quiero pedir este producto:\n\n• ${n} x ${p.nombre}${olabel(p,o)}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}\n${full(p)}`;
+  const t=`¡Hola MELORA! Quiero pedir este producto:\n\n• ${n} x ${p.nombre}${olabel(p,o)}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}${p.precio*n>ENVIO_GRATIS?"\n✅ Aplica envío gratis":""}\n${full(p)}`;
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener")}
 /* ---- También te puede gustar (solo Cuidado corporal) ---- */
 function rel(p){if(p.cat!=="corporal")return"";const L=PRODUCTOS.filter(x=>x.cat==="corporal"),i=L.findIndex(x=>x.id===p.id);
@@ -60,7 +60,7 @@ const pf=n=>"$"+n.toLocaleString("es-CO"),SV=d=>`<svg viewBox="0 0 24 24" width=
 const ICON={truck:'<rect x="1" y="4" width="15" height="12"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/>',pin:'<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',gift:'<path d="M20 12v10H4V12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>',wa:'<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l1.9-5.5A8.4 8.4 0 1 1 21 11.5z"/>'};
 function view(id,fromLink){
   const p=byId(id),F=p.fotos||[p.foto],op=p.opciones&&p.opciones[0],ped=p.estado==="pedido";let n=1,cur=0;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
-  const rows=[["truck","Envío gratis en compras mayores a "+pf(ENVIO_GRATIS)],["pin","Entregamos en Betulia, Concordia y Urrao"],["gift","Llega en caja MELORA, lista para regalar"]];if(GARANTIA)rows.push(["shield",GARANTIA]);
+  const rows=[["pin","Entregamos en Betulia, Concordia y Urrao"],["gift","Llega en caja MELORA, lista para regalar"]];if(GARANTIA)rows.push(["shield",GARANTIA]);
   const sp=(p.specs||[]).map(([k,v])=>`<div class="sp"><small>${k}</small><b>${v}</b></div>`).join("");
   $("pmBody").innerHTML=`<div class="pm"><div class="xw"><button class="x" data-x aria-label="Cerrar">✕</button></div><div class="pmt"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div><div class="dots2">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"></button>`).join("")}</div>`:""}</div>
   <div><div class="meta"><span class="cl">${catName(p.cat)}</span>${p.estado?`<span class="pill ${ped?"p":""}"><i></i>${ped?"Bajo pedido":"Disponible"}</span>`:""}</div>
@@ -69,9 +69,12 @@ function view(id,fromLink){
   <p>${p.desc}</p>${sp?`<div class="specs">${sp}</div>`:""}
   ${op?`<label class="opt">${op.n}<select id="opt"><option value="" disabled selected>Elige tu ${op.n.toLowerCase()}</option>${op.v.map(x=>`<option>${x}</option>`).join("")}</select><span id="opterr" role="alert"></span></label>`:""}
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
+  <div class="ship" id="ship"></div>
   <ul class="info">${rows.map(([i,t])=>`<li>${SV(ICON[i])}<span>${t}</span></li>`).join("")}</ul>
   ${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>${rel(p)}
-  <div class="pbar"><button class="wab" data-wa>${SV(ICON.wa)} Comprar por WhatsApp</button></div></div>`;
+  <div class="pbar"><button class="wab" data-wa><img class="wi" src="img/whatsapp.png" alt="" width="22" height="22"> Comprar por WhatsApp</button></div></div>`;
+  const ship=()=>{const t=p.precio*n,ok=t>ENVIO_GRATIS,s=$("ship");s.className="ship"+(ok?" ok":"");
+    s.innerHTML=`<div class="st">${SV(ICON.truck)}<span>${ok?"<b>¡Envío gratis!</b> Tu pedido supera los "+pf(ENVIO_GRATIS):"Llevas <b>"+pf(t)+"</b> · te faltan <b>"+pf(ENVIO_GRATIS+1-t)+"</b> para el envío gratis"}</span></div><i><b style="width:${Math.min(100,t/ENVIO_GRATIS*100)}%"></b></i>${ok?"":"<small>Suma más productos en el chat y llega al envío gratis.</small>"}`};
   const b=$("pmBody"),pick=()=>{if(!op)return"";const v=$("opt").value;if(!v){$("opt").classList.add("bad");$("opterr").textContent="Elige tu "+op.n.toLowerCase()+" para continuar";$("opt").focus();return null}return v};
   const show=k=>{cur=(k+F.length)%F.length;$("gm").src=F[cur];b.querySelectorAll(".th button,.dots2 button").forEach(x=>x.classList.toggle("on",+x.dataset.t===cur))};
   let x0=null;const gl=b.querySelector(".gal");gl.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
@@ -79,10 +82,11 @@ function view(id,fromLink){
   b.onclick=e=>{const t=e.target;
     if(t.closest("[data-x]"))$("pm").close();const rc=t.closest("[data-rc]");if(rc){view(rc.dataset.rc);$("pm").scrollTop=0;return}
     const th=t.closest("[data-t]");if(th)show(+th.dataset.t);
-    if(t.closest("[data-m]")&&n>1)$("pq").textContent=--n;
-    if(t.closest("[data-p]"))$("pq").textContent=++n;
+    if(t.closest("[data-m]")&&n>1){$("pq").textContent=--n;ship()}
+    if(t.closest("[data-p]")){$("pq").textContent=++n;ship()}
     if(t.closest("[data-wa]")){const o=pick();if(o===null)return;askWA(p,n,o)}};
   b.onchange=e=>{if(e.target.id==="opt"){e.target.classList.remove("bad");$("opterr").textContent=""}};
+  ship();
   if(!$("pm").open)$("pm").showModal();if(!fromLink)history.replaceState(null,"",plink(p));
 }
 $("pm").addEventListener("click",e=>{if(e.target===$("pm"))$("pm").close()});

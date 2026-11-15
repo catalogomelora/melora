@@ -145,3 +145,10 @@ dialog{background:#fffdfb}
 .card .wa{background:#1f6f45;border-color:#1f6f45;color:#fff;margin-top:auto}.card .wa:hover{background:#185a38}
 .pbar{grid-template-columns:1fr!important}
 footer{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+.wi{width:22px;height:22px;flex:none}.wab .wi{width:24px;height:24px}
+.hwa,#fwa{display:inline-flex;align-items:center;gap:8px}#fwa{background:#1f6f45}#fwa:hover{background:#185a38}
+.ship{background:#f5ede3;border-radius:14px;padding:12px 14px;display:grid;gap:8px;color:var(--ink)}.ship .st{display:flex;gap:10px;align-items:center}.ship svg{flex:none;color:#8a5a1e}
+.ship i{display:block;height:8px;border-radius:9px;background:#fff;overflow:hidden}.ship i b{display:block;height:100%;background:var(--rose);transition:width .3s}
+.ship small{color:var(--mut);font-size:.82rem}.ship.ok{background:#e5f2ea}.ship.ok i b{background:#1f6f45}.ship.ok svg{color:#1f6f45}
+.card .wa img.wi,.card .wa .wi{width:22px;height:22px;aspect-ratio:auto;object-fit:contain}
+.wa{gap:8px}
