@@ -198,6 +198,19 @@ const PRODUCTOS=[
   "estado": "disp"
  },
  {
+  "id": 39,
+  "nombre": "Candonga estrellas",
+  "cat": "aretes",
+  "precio": 14000,
+  "estado": "disp",
+  "desc": "Candongas tipo semijoya en rodio.",
+  "foto": "img/candonga-estrellas.webp",
+  "fotos": [
+   "img/candonga-estrellas.webp",
+   "img/candonga-estrellas-2.webp"
+  ]
+ },
+ {
   "id": 8,
   "nombre": "Pulsera hombre cubana",
   "cat": "pulseras",
@@ -229,9 +242,13 @@ const PRODUCTOS=[
   "nombre": "Cadena agropecuario",
   "cat": "cadenas",
   "precio": 25000,
-  "desc": "Cadena de 60 cm y dije en baño de rodio, con microengaste tipo semi-joya.",
+  "desc": "Cadena de 60 cm y dijes en baño de rodio, con microengaste tipo semijoya.",
   "foto": "img/cadena-agropecuario.webp",
-  "estado": "disp"
+  "estado": "disp",
+  "fotos": [
+   "img/cadena-agropecuario.webp",
+   "img/cadena-agropecuario-2.webp"
+  ]
  },
  {
   "id": 12,
@@ -257,22 +274,39 @@ const PRODUCTOS=[
   ]
  },
  {
+  "id": 38,
+  "nombre": "Pulsera cruces",
+  "cat": "pulseras",
+  "precio": 22000,
+  "estado": "disp",
+  "desc": "Pulsera tipo semijoya con baño en rodio.",
+  "foto": "img/pulsera-cruces.webp",
+  "fotos": [
+   "img/pulsera-cruces.webp",
+   "img/pulsera-cruces-2.webp"
+  ]
+ },
+ {
   "id": 13,
   "nombre": "Cadena Virgen",
   "cat": "cadenas",
   "precio": 30000,
-  "desc": "Cadena de 45 cm y dije en baño de rodio con microengaste tipo semi-joya.",
+  "desc": "Cadena de 45 cm y dijes en baño de rodio, con microengaste tipo semijoya.",
   "foto": "img/cadena-virgen.webp",
   "estado": "disp"
  },
  {
   "id": 14,
-  "nombre": "Collar multidijes",
+  "nombre": "Cadena multidijes",
   "cat": "cadenas",
-  "precio": 35000,
+  "precio": 30000,
   "desc": "Collar multicharms con piezas en baño de rodio.",
   "foto": "img/collar-multidijes.webp",
-  "estado": "disp"
+  "estado": "disp",
+  "fotos": [
+   "img/collar-multidijes.webp",
+   "img/cadena-multidijes-2.webp"
+  ]
  },
  {
   "id": 15,
