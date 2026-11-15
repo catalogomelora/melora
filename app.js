@@ -55,26 +55,30 @@ const slug=s=>norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),tn=f=>f.re
 function askWA(p,n,o){track("Lead",{content_name:p.nombre,value:p.precio*n,currency:"COP"});
   const t=`¡Hola MELORA! Quiero pedir este producto:\n\n• ${n} x ${p.nombre}${olabel(p,o)}${p.estado==="pedido"?" (bajo pedido)":""} — ${cop(p.precio*n)}\n${full(p)}\n\nMi municipio es: `;
   open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank","noopener")}
+/* ---- También te puede gustar (solo Cuidado corporal) ---- */
+function rel(p){if(p.cat!=="corporal")return"";const L=PRODUCTOS.filter(x=>x.cat==="corporal"),i=L.findIndex(x=>x.id===p.id);
+  const R=Array.from({length:Math.min(4,L.length-1)},(_,k)=>L[(i+1+k)%L.length]);
+  return `<section class="rel"><h3>♥ También te puede gustar ♥</h3><div class="rg">${R.map(x=>`<button class="rc" data-rc="${x.id}"><img src="${tn(x.foto)}" alt="" loading="lazy"><span>${x.nombre}</span><b>${cop(x.precio)}</b></button>`).join("")}</div></section>`}
 /* ---- Producto (vista rápida) ---- */
 function view(id,fromLink){
   const p=byId(id),F=p.fotos||[p.foto],op=p.opciones&&p.opciones[0],ped=p.estado==="pedido";let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
-  $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
+  $("pmBody").innerHTML=`<div class="pm"><div class="top"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
   <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${ped?"p":""}">${ped?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2>
   <div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
   ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b></p>`:""}
   ${op?`<label class="opt">${op.n}<select id="opt"><option value="" disabled selected>Elige tu ${op.n.toLowerCase()}</option>${op.v.map(x=>`<option>${x}</option>`).join("")}</select><span id="opterr" role="alert"></span></label>`:""}
   <div class="q"><button data-m aria-label="Menos">−</button><b id="pq">1</b><button data-p aria-label="Más">+</button></div>
   <button class="btn" data-add>🛒 Agregar al carrito</button><button class="wa" data-wa>Pedir este producto por WhatsApp</button>
-  <p>${p.desc}</p>${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>`;
+  <p>${p.desc}</p>${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>${rel(p)}</div>`;
   const b=$("pmBody"),pick=()=>{if(!op)return"";const v=$("opt").value;if(!v){$("opt").classList.add("bad");$("opterr").textContent="Elige tu "+op.n.toLowerCase()+" para continuar";$("opt").focus();return null}return v};
   b.onclick=e=>{const t=e.target;
-    if(t.closest("[data-x]"))$("pm").close();const th=t.closest("[data-t]");if(th){$("gm").src=F[th.dataset.t];b.querySelectorAll(".th button").forEach(x=>x.classList.toggle("on",x===th))}
+    if(t.closest("[data-x]"))$("pm").close();const rc=t.closest("[data-rc]");if(rc){view(rc.dataset.rc);$("pm").scrollTop=0;return}const th=t.closest("[data-t]");if(th){$("gm").src=F[th.dataset.t];b.querySelectorAll(".th button").forEach(x=>x.classList.toggle("on",x===th))}
     if(t.closest("[data-m]")&&n>1)$("pq").textContent=--n;
     if(t.closest("[data-p]"))$("pq").textContent=++n;
     if(t.closest("[data-add]")){const o=pick();if(o===null)return;add(p.id,n,o);$("pm").close();feedback()}
     if(t.closest("[data-wa]")){const o=pick();if(o===null)return;askWA(p,n,o)}};
   b.onchange=e=>{if(e.target.id==="opt"){e.target.classList.remove("bad");$("opterr").textContent=""}};
-  $("pm").showModal();if(!fromLink)history.replaceState(null,"",plink(p));
+  if(!$("pm").open)$("pm").showModal();if(!fromLink)history.replaceState(null,"",plink(p));
 }
 $("pm").addEventListener("click",e=>{if(e.target===$("pm"))$("pm").close()});
 $("pm").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",cat?"#"+cat:location.pathname+location.search)});
