@@ -58,7 +58,7 @@ function askWA(p,n,o){track("Lead",{content_name:p.nombre,value:p.precio*n,curre
 /* ---- Producto (vista rápida) ---- */
 function view(id,fromLink){
   const p=byId(id),F=p.fotos||[p.foto],op=p.opciones&&p.opciones[0],ped=p.estado==="pedido";let n=1;track("ViewContent",{content_name:p.nombre,value:p.precio,currency:"COP"});
-  $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
+  $("pmBody").innerHTML=`<div class="pm"><div class="gal"><img id="gm" src="${F[0]}" alt="${p.nombre}">${F.length>1?`<div class="th">${F.map((f,k)=>`<button data-t="${k}" class="${k?"":"on"}" aria-label="Foto ${k+1}"><img src="${tn(f)}" alt=""></button>`).join("")}</div>`:""}</div><div><button class="x" data-x aria-label="Cerrar">✕</button>
   <small>${catName(p.cat)}</small>${p.estado?`<span class="tag s ${ped?"p":""}">${ped?"Bajo pedido":"Disponible"}</span>`:""}<h2>${p.nombre}</h2>
   <div class="price">${cop(p.precio)}${p.incluye?`<small>Precio por el kit completo</small>`:""}</div>
   ${ped?`<p class="eta"><b>Llega en ${DIAS_PEDIDO}.</b></p>`:""}
@@ -68,7 +68,7 @@ function view(id,fromLink){
   <p>${p.desc}</p>${p.incluye?`<p><b>Incluye:</b></p><ul>${p.incluye.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div></div>`;
   const b=$("pmBody"),pick=()=>{if(!op)return"";const v=$("opt").value;if(!v){$("opt").classList.add("bad");$("opterr").textContent="Elige tu "+op.n.toLowerCase()+" para continuar";$("opt").focus();return null}return v};
   b.onclick=e=>{const t=e.target;
-    if(t.closest("[data-x]"))$("pm").close();const th=t.closest("[data-t]");if(th)$("gm").src=F[th.dataset.t];
+    if(t.closest("[data-x]"))$("pm").close();const th=t.closest("[data-t]");if(th){$("gm").src=F[th.dataset.t];b.querySelectorAll(".th button").forEach(x=>x.classList.toggle("on",x===th))}
     if(t.closest("[data-m]")&&n>1)$("pq").textContent=--n;
     if(t.closest("[data-p]"))$("pq").textContent=++n;
     if(t.closest("[data-add]")){const o=pick();if(o===null)return;add(p.id,n,o);$("pm").close();feedback()}

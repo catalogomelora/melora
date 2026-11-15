@@ -249,7 +249,12 @@ const PRODUCTOS=[
   "precio": 22000,
   "desc": "Pulsera tipo decenario con baño de rodio.",
   "foto": "img/pulsera-virgen-cruz.webp",
-  "estado": "pedido"
+  "estado": "pedido",
+  "fotos": [
+   "img/pulsera-virgen-cruz.webp",
+   "img/pulsera-virgen-cruz-2.webp",
+   "img/pulsera-virgen-cruz-3.webp"
+  ]
  },
  {
   "id": 13,
