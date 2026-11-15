@@ -162,6 +162,15 @@ const PRODUCTOS=[
   "estado": "disp"
  },
  {
+  "id": 27,
+  "nombre": "Shimmer Glam Julieta Bom bom",
+  "cat": "corporal",
+  "precio": 24000,
+  "desc": "Body splash de 160 ml que aromatiza delicadamente tu cuerpo y deja destellos brillantes.",
+  "foto": "img/shimmer-bombom.webp",
+  "estado": "disp"
+ },
+ {
   "id": 4,
   "nombre": "Shimmer Glam Julieta Coco - Vainilla",
   "cat": "corporal",
@@ -171,13 +180,121 @@ const PRODUCTOS=[
   "estado": "disp"
  },
  {
-  "id": 5,
-  "nombre": "Candonga rosa",
-  "cat": "aretes",
-  "precio": 14000,
-  "desc": "Candongas tipo semijoya en rodio.",
-  "foto": "img/candonga-rosa.webp",
+  "id": 41,
+  "nombre": "Shimmer Glam Julieta Aqua Kiss",
+  "cat": "corporal",
+  "precio": 24000,
+  "estado": "pedido",
+  "desc": "Nuestro exclusivo Body Splash con brillos no solo aromatiza delicadamente tu cuerpo, sino que también refresca la piel al instante y deja unos destellos luminosos que harán que brilles con cada movimiento. 💧 Aqua Kiss – Fresca, floral y elegante, perfecta para un toque sofisticado.",
+  "foto": "img/shimmer-aqua-kiss.webp"
+ },
+ {
+  "id": 28,
+  "nombre": "Mantequilla Corporal Julieta Bom Bom",
+  "cat": "corporal",
+  "precio": 33000,
+  "desc": "Mantequilla corporal de 220 ml, línea Bombombun.",
+  "foto": "img/mantequilla-bombom.webp",
   "estado": "disp"
+ },
+ {
+  "id": 29,
+  "nombre": "Mantequilla Corporal Julieta Coco-Vainilla",
+  "cat": "corporal",
+  "precio": 33000,
+  "desc": "Mantequilla corporal de 220 ml con aroma a coco y vainilla.",
+  "foto": "img/mantequilla-coco-vainilla.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 42,
+  "nombre": "Mantequilla Corporal Julieta Aqua Kiss",
+  "cat": "corporal",
+  "precio": 33000,
+  "estado": "pedido",
+  "desc": "Nuestra crema extra hidratante con brillos es una experiencia sensorial única que nutre intensamente tu piel mientras la envuelve con destellos sutiles y un aroma espectacular.",
+  "foto": "img/mantequilla-aqua-kiss.webp"
+ },
+ {
+  "id": 31,
+  "nombre": "Crema Corporal hidratante con destellos Julieta Bombombun",
+  "cat": "corporal",
+  "precio": 25000,
+  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
+  "foto": "img/crema-bombombun.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 33,
+  "nombre": "Crema Corporal hidratante con destellos Julieta Coco - Vainilla",
+  "cat": "corporal",
+  "precio": 25000,
+  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
+  "foto": "img/crema-coco-vainilla.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 46,
+  "nombre": "Crema Corporal hidratante con destellos Julieta Pure Seduction",
+  "cat": "corporal",
+  "precio": 25000,
+  "estado": "pedido",
+  "desc": "Diseñada para destacar tu belleza natural, esta crema combina hidratación profunda con un sutil toque luminoso que realza tu piel al instante.",
+  "foto": "img/crema-pure-seduction.webp"
+ },
+ {
+  "id": 32,
+  "nombre": "Exfoliante Corporal Julieta Bombombun",
+  "cat": "corporal",
+  "precio": 28000,
+  "desc": "Gel exfoliante de 450 ml con aloe vera, vitamina E y semillas de macadamia y durazno.",
+  "foto": "img/exfoliante-bombombun.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 44,
+  "nombre": "Exfoliante Corporal Julieta Maracuyá",
+  "cat": "corporal",
+  "precio": 28000,
+  "estado": "pedido",
+  "desc": "Nuestro Exfoliante Corporal es el aliado perfecto para transformar tu rutina de cuidado en un momento de puro placer.",
+  "foto": "img/exfoliante-maracuya.webp"
+ },
+ {
+  "id": 45,
+  "nombre": "Exfoliante Corporal Julieta Fresas con Chocolate",
+  "cat": "corporal",
+  "precio": 28000,
+  "estado": "pedido",
+  "desc": "Nuestro Exfoliante Corporal es el aliado perfecto para transformar tu rutina de cuidado en un momento de puro placer.",
+  "foto": "img/exfoliante-fresas-chocolate.webp"
+ },
+ {
+  "id": 30,
+  "nombre": "Aceite Corporal con destellos Julieta Coco",
+  "cat": "corporal",
+  "precio": 19000,
+  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
+  "foto": "img/aceite-coco.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 34,
+  "nombre": "Aceite Corporal con destellos Julieta Naranja",
+  "cat": "corporal",
+  "precio": 19000,
+  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
+  "foto": "img/aceite-naranja.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 43,
+  "nombre": "Aceite Corporal con destellos Julieta Almendras",
+  "cat": "corporal",
+  "precio": 19000,
+  "estado": "pedido",
+  "desc": "Brilla con propósito. Nuestro aceite corporal hidratante con brillos está formulado para cuidar tu piel mientras la envuelve en un resplandor luminoso y natural.",
+  "foto": "img/aceite-almendras.webp"
  },
  {
   "id": 6,
@@ -186,6 +303,31 @@ const PRODUCTOS=[
   "precio": 16000,
   "desc": "Tónico facial de 110 ml con extractos naturales de rosa, manzanilla y aloe vera. El aliado perfecto para cuidar y mimar tu piel.",
   "foto": "img/tonico-de-rosas-julieta.webp",
+  "estado": "disp"
+ },
+ {
+  "id": 18,
+  "nombre": "Iluminador Trendy Pin Up",
+  "cat": "corporal",
+  "precio": 13000,
+  "desc": "El glowy nunca faltará en tu vida si este iluminador conforma tu maquillaje.",
+  "foto": "img/iluminador-trendy-pin-up.webp"
+ },
+ {
+  "id": 19,
+  "nombre": "Protector solar Vitamina C Bioaqua SPF 50",
+  "cat": "corporal",
+  "precio": 13000,
+  "desc": "Protector solar ligero e hidratante con vitamina C, SPF 50+ PA+++. Presentación de 50 g.",
+  "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.webp"
+ },
+ {
+  "id": 5,
+  "nombre": "Candonga rosa",
+  "cat": "aretes",
+  "precio": 14000,
+  "desc": "Candongas tipo semijoya en rodio.",
+  "foto": "img/candonga-rosa.webp",
   "estado": "disp"
  },
  {
@@ -343,93 +485,5 @@ const PRODUCTOS=[
   "desc": "Choker de perlas con dije de la Virgen Milagrosa en baño de rodio.",
   "foto": "img/choker-virgen-milagrosa.webp",
   "estado": "pedido"
- },
- {
-  "id": 18,
-  "nombre": "Iluminador Trendy Pin Up",
-  "cat": "corporal",
-  "precio": 13000,
-  "desc": "El glowy nunca faltará en tu vida si este iluminador conforma tu maquillaje.",
-  "foto": "img/iluminador-trendy-pin-up.webp"
- },
- {
-  "id": 19,
-  "nombre": "Protector solar Vitamina C Bioaqua SPF 50",
-  "cat": "corporal",
-  "precio": 13000,
-  "desc": "Protector solar ligero e hidratante con vitamina C, SPF 50+ PA+++. Presentación de 50 g.",
-  "foto": "img/protector-solar-vitamina-c-bioaqua-spf-50.webp"
- },
- {
-  "id": 27,
-  "nombre": "Shimmer Glam Julieta Bom bom",
-  "cat": "corporal",
-  "precio": 24000,
-  "desc": "Body splash de 160 ml que aromatiza delicadamente tu cuerpo y deja destellos brillantes.",
-  "foto": "img/shimmer-bombom.webp",
-  "estado": "disp"
- },
- {
-  "id": 28,
-  "nombre": "Mantequilla Corporal Julieta Bom Bom",
-  "cat": "corporal",
-  "precio": 33000,
-  "desc": "Mantequilla corporal de 220 ml, línea Bombombun.",
-  "foto": "img/mantequilla-bombom.webp",
-  "estado": "disp"
- },
- {
-  "id": 29,
-  "nombre": "Mantequilla Corporal Julieta Coco-Vainilla",
-  "cat": "corporal",
-  "precio": 33000,
-  "desc": "Mantequilla corporal de 220 ml con aroma a coco y vainilla.",
-  "foto": "img/mantequilla-coco-vainilla.webp",
-  "estado": "disp"
- },
- {
-  "id": 30,
-  "nombre": "Aceite Corporal con destellos Julieta Coco",
-  "cat": "corporal",
-  "precio": 19000,
-  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-coco.webp",
-  "estado": "disp"
- },
- {
-  "id": 31,
-  "nombre": "Crema Corporal hidratante con destellos Julieta Bombombun",
-  "cat": "corporal",
-  "precio": 25000,
-  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-bombombun.webp",
-  "estado": "disp"
- },
- {
-  "id": 32,
-  "nombre": "Exfoliante Corporal Julieta Bombombun",
-  "cat": "corporal",
-  "precio": 28000,
-  "desc": "Gel exfoliante de 450 ml con aloe vera, vitamina E y semillas de macadamia y durazno.",
-  "foto": "img/exfoliante-bombombun.webp",
-  "estado": "disp"
- },
- {
-  "id": 33,
-  "nombre": "Crema Corporal hidratante con destellos Julieta Coco - Vainilla",
-  "cat": "corporal",
-  "precio": 25000,
-  "desc": "Crema para manos y cuerpo de 250 ml con glitter. Hidrata, suaviza y protege. Contiene vitamina E, colágeno y aloe vera.",
-  "foto": "img/crema-coco-vainilla.webp",
-  "estado": "disp"
- },
- {
-  "id": 34,
-  "nombre": "Aceite Corporal con destellos Julieta Naranja",
-  "cat": "corporal",
-  "precio": 19000,
-  "desc": "Aceite corporal de 125 ml con vitamina E, aceite de argán, macadamia y filtro. Hidratante, relajante, suaviza y tonifica.",
-  "foto": "img/aceite-naranja.webp",
-  "estado": "disp"
  }
 ];
